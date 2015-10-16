@@ -1,2 +1,2 @@
-# kautschuk
-Nur die wichtigsten Scripte für den Physik-Bachelor
+# Kautschuk
+Eine `Latex`-Scriptsammlung für das Praktikum und alle anderen Anlässe.
