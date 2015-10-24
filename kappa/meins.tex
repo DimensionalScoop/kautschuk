@@ -1,0 +1,94 @@
+% Header-Vorlage mit Kommentaren
+% By Jean-Marco A.
+
+\documentclass[paper_a4, captions=tableheading, bibliography=totoc]{scrartcl} % Dokumentenklasse
+
+
+
+
+\usepackage{scrhack} % FLoats
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+\usepackage{booktabs} % Tabellen
+
+\usepackage[aux]{rerunfilecheck} % Warnung falls erneutes kompillieren nötig
+
+\usepackage{polyglossia} % Spracheinstellungen
+\setmainlanguage{german}
+
+\usepackage{biblatex} % Biber: Literaturverzeichnis
+%\addbibresource{lit.bib}
+
+\usepackage[autostyle]{csquotes} % Anführungszeichen, Satzzeichen, etc.
+% \setotherlanguages{english, french}
+
+\usepackage{amsmath} % Mathe-Befehle, Symbole, etc.
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{fontspec} % Schritarteinstellungen
+% \setmainfont{Tex Gyre Termes}
+% \setsansfont{Tex Gyre Heros}
+% \setmonofont{Tex Gyre Cursor}
+
+%\usepackage{expl3}
+%\usepackage{xparse}
+
+\usepackage[ % Mathematik-Einstellungen
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+  partial=upright,
+]{unicode-math}
+\setmathfont{Latin Modern Math} % Mathematik Schriftart
+
+\usepackage[ % Fehlerrechnung
+  locale=DE,
+  separate-uncertainty=true, % Art, Fehler anzugeben
+  per-mode=symbol-or-fraction, % Art, Einheiten anzugeben
+]{siunitx}
+
+%\usepackage[ % Chemische Formeln
+%  version=4,
+%  math-greek=default,
+%  text-greek=default,
+%]{mhchem}
+
+\usepackage[section, below]{placeins} % Floats
+\usepackage[]{caption} % Überschriften schöner machen
+
+\usepackage{graphicx} % Grafiken einbinden
+\usepackage{grffile}
+\usepackage{subcaption} % Mehrere Bildunterschritfen
+
+\usepackage{microtype} % Kleine schöne Änderungen, z.B. Textrand
+
+\usepackage{xfrac} % Alternative Brüche im Text mit \sfrac
+
+\usepackage[shortcuts]{extdash} % Trennungsregeln
+
+\ExplSyntaxOn
+  \AtBeginDocument {
+  \renewcommand{\kappa}
+  {
+    \begin{picture}(10,10)\includegraphics[height=0.2in]{insert.png}
+    \end{picture}
+  }
+  }
+\ExplSyntaxOff
+
+
+\usepackage[unicode]{hyperref} % Hyperlinks können angezeigt werden
+
+\usepackage{bookmark} % Ermöglicht Bookmarks in PDF
+
+
+\begin{document}
+ Es gilt das Kapp'sche Gesetz:
+ \begin{equation}
+\int_{\kappa}^{\kappa} f(x) \, \symup{d}x = \nabla \cdot \vec{\kappa}
+ \end{equation}
+\end{document}
