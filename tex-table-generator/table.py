@@ -101,6 +101,7 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
             elif (buchstabe == '\\'):
                 counter_lines += 1
                 counter_columns = counter_columns % (NumberOfColumns-1)
+                dot_reached = False
             elif (buchstabe != ' ') & (buchstabe != '\n'):
                 if (counter_lines/2 <= (NumberOfLines-1)):
                     if dot_reached == False:
@@ -108,6 +109,8 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
                     else:
                         counter_digits_postDot[counter_lines/2][counter_columns] += 1
     # jetzt ermittle maximale Anzahl an Stellen und speichere sie in MaxDigitsPreDot und MaxDigitsPostDot
+    print(counter_digits_preDot)
+    print(counter_digits_postDot)
     MaxDigitsPreDot = []
     counter_digits_preDot_np = np.array(counter_digits_preDot)
     for x in counter_digits_preDot_np.T:
