@@ -67,7 +67,7 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
     Output = """\\begin{table}
     \\centering
     \\caption{""" + caption + """}
-    \\label{""" + label + """ }
+    \\label{""" + label + """}
     \\sisetup{parse-numbers=false}
     \\begin{tabular}{\n"""
 
