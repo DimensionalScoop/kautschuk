@@ -1,12 +1,13 @@
 import itertools
 import codecs
-
+import uncertainties
 import numpy as np
 import uncertainties.unumpy as unp
 from uncertainties.unumpy import (
     nominal_values as noms,
     std_devs as stds,
 )
+from uncertainties import ufloat
 
 def make_table(columns, figures=None):
     assert hasattr(columns[0],'__iter__'), "Wenn nur eine Zeile von Daten vorliegt, funktioniert zip nicht mehr; die Elemente von columns müssen Listen sein, auch wenn sie ihrerseits nur ein Element enthalten."
@@ -40,6 +41,9 @@ def make_composed_table(tables):
     return Output
 
 def make_SI(num, unit, exp='', figures=None):
+    y = ufloat(0.0, 0) #siunitx mag kein 0 +- 0, deshalb hier der workaround
+    if num == y:
+        return "(0 \pm 0) ~ \si{" + unit + "}"
     if np.any(stds([num])):
         if figures is None:
             figures = ''
@@ -51,10 +55,18 @@ def make_SI(num, unit, exp='', figures=None):
 
 def write(filename, content):
     f = codecs.open(filename, "w", "utf-8")
-    f.write(content)
-    if not content.endswith('\n'):
-        f.write('\n')
-    f.close()
+    if type(content) == uncertainties.Variable:
+        content = "\num{" + str(x.n) + " +- " + str(x.s) + "}"
+        f.write(content)
+        if not content.endswith('\n'):
+            f.write('\n')
+        f.close()
+    else:
+        f.write(content)
+        if not content.endswith('\n'):
+            f.write('\n')
+        f.close()
+
     #
     # with open(filename, 'w') as f:
     #     f.write(content)
