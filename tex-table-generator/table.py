@@ -145,9 +145,13 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
     else:   # es wurden fehlerbehaftete Werte übergeben, daher muss +- zwischen die entsprechenden Spalten
         i = 0.0
         for digits_preDot, digits_postDot in zip(MaxDigitsPreDot, MaxDigitsPostDot):
-            Output += '\tS[table-format=' + str(digits_preDot) + '.' + str(digits_postDot) +']\n'
             if i in stacking_list:
+                Output += '\tS[table-format=' + str(digits_preDot) + '.' + str(digits_postDot) +']\n'
                 Output += '\t@{${}\\pm{}$}\n'
+            elif i-1 in stacking_list:
+                Output += '\tS[table-format=' + str(digits_preDot) + '.' + str(digits_postDot) +', table-number-alignment = left]\n'      # wir wollen hier linksbündige Zahlen
+            else:
+                Output += '\tS[table-format=' + str(digits_preDot) + '.' + str(digits_postDot) +']\n'
             i += 1
 
     # Zwischengeplänkel
