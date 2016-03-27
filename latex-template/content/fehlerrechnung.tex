@@ -1,0 +1,34 @@
+\section{Fehlerrechnung}
+Dieses Kapitel listet kurz und bündig die benötigten und aus den Methoden der Statistik bekannten Formeln für die Fehlerrechnung auf.
+Die Schätzung der Standardabweichung ist
+\begin{equation}
+  \label{eq:std}
+  \Delta X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2}     \; .
+\end{equation}
+Der Mittelwert ist
+\begin{equation}
+  \overline{X} = \frac{1}{n} \sum_{i=1}^nX_i
+\end{equation}
+Der Fehler des Mittelwertes ist
+\begin{equation}
+  \label{eq:std_mean}
+  \Delta \overline{X} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n(X_i-\overline{X})^2}   \; .
+\end{equation}
+Für fehlerbehaftete Größen, die auch in folgenden Formeln verwendet werden, muss die Fehlerfortpflanzung nach Gauß berücksichtigt werden.
+\begin{equation}
+  \label{eq:GFFP}
+  \Delta f = \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial X_i}\right)^2 \cdot (\Delta X_i)^2}
+\end{equation}
+Bei der linearen Regressionsrechnung sind die Parameter $m$ und $b$ der Ausgleichsgerade $y=mx+b$ wie folgt gegeben:
+\begin{align}
+  m &= \frac{\overline{xy}-\overline{x}\cdot\overline{y}}{\overline{x²} - \overline{x}²} & &  b = \overline{y} - m \overline{x}  \; .
+\end{align}
+Dabei sind $x_i$ und $y_i$ linear abhängige Messgrößen. Der Fehler dieser Parameter wiederum errechnet sich aus
+\begin{align}
+  \sigma_m^2 &= \frac{\sigma^2}{n(\overline{x²} - \overline{x}²)} & &\sigma_b^2 = \frac{\sigma^2\overline{x²}}{n(\overline{x²} - \overline{x}²)}
+\end{align}
+% Wenn Messdaten mit Vorhersagen verglichen werden sollen, benutzt man häufig die \emph{root mean square deviation}. Diese ist gegeben durch
+% \begin{equation}
+%   \label{eq:RMSE}
+%   \textrm{RMSD} = \sqrt{\overline{(Y_\textrm{Messung}-Y_\textrm{Vorhersage})^2}}  \; .
+% \end{equation}
