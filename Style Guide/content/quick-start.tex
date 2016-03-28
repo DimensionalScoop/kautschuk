@@ -20,7 +20,10 @@ Das Erstellen der Messdaten sollte ein einmaliger Schritt sein. Wenn der Datener
 Der nächste Schritt ist die Bearbeitung der Datei "/Praktikum/xxx/PythonSkript.py", welche sich durch das Kopieren des Templates bereits an richtiger Stelle befindet. In diesem Skript sind die gängigen Code Examples als Kommentare hinterlegt, sodass diese direkt an die benötigte Stelle kopiert werden können. Nun einige Richtlinien zur Lesbarkeit eures Codes:
 \begin{itemize}
   \item Ganz oben steht, was alles importiert wird. Meistens sollte das reichen, was die Vorlage bereits vorgibt.
-  \item Dann werden ggf. benötigte Funktionen deklariert mit einer sprechenden Namengebung, z.B. \emph{def phi(param\_a, Temperatur)}.
+  \item Dann werden ggf. benötigte Funktionen deklariert mit einer sprechenden Namengebung, z.B.
+  \begin{lstlisting}
+    def phi(param_a, Temperatur)
+  \end{lstlisting}
   \item Nun werden globale Konstanten deklariert und in einem Kommentar beschrieben, z.B. \emph{R = const.physical\_constants["molar gas constant"]} \#\emph{Array of value, unit, error}
   \item Erst jetzt werden die Aufgabenteile behandelt. Dazu wird eine kommentierte Abgrenzung verwendet und es folgt der Kommentar \#\emph{Aufgabenteil a)}.
   \item Variablen werden deklariert, häufig durch Einlesen der Messwerte, z.B. \emph{c\_W = np.genfromtxt('Messdaten/spezifische\_Waermekapazitaet.txt', unpack=True)}. Auch hier sollten so wie überall die Variablennamen sprechend sein, dh. dem Leser anzeigen, was sie darstellen.
