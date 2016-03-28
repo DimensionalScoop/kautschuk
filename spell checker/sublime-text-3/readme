@@ -1,0 +1,3 @@
+Unter Linux: Die Zip-Datei nach "~/.config/sublime-text-3/Packages/" extrahieren, sodass die beiden Dateien in ~/.config/sublime-text-3/Packages/Austrian Spell Checker/* liegen.
+
+Sonst kann man unter Preferences->Browse Packages den Pakete-Ordner öffnen.
