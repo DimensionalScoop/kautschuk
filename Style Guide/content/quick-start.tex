@@ -1,36 +1,65 @@
-\section{Quick-Start}
+\section{Quick-Start: how to}
 \label{sec:qs}
 
-Regel Nummer eins: viel Inhalt, wenig Bla Bla! Dies wollen wir hier auch einhalten. Regel Nummer zwei: sinnvolle Kommentare anbringen, Variablen+Dateien nachvollziehbar benennen, insgesamt auf Nachvollziehbarkeit achten. Regel Nummer drei: eigene nützliche Erkenntnisse den Anderen zur Verfügung stellen durch Aktualisieren des Kautschuk Repos. Die verwendeten Programme:
+\textbf{Regel Nummer eins}: viel Inhalt, wenig Bla Bla! Dies wollen wir hier auch einhalten. \textbf{Regel Nummer zwei}: sinnvolle Kommentare anbringen, Variablen+Dateien nachvollziehbar benennen, insgesamt auf Nachvollziehbarkeit achten. Hierzu unbedingt das Kapitel \ref{sec:cs} beachten! \textbf{Regel Nummer drei}: eigene nützliche Erkenntnisse den Anderen zur Verfügung stellen durch Aktualisieren des Kautschuk Repos. Die verwendeten Programme:
 \begin{itemize}
   \item Python 3.x
   \item LuaLaTeX
   \item make
   \item atom o.ä. Texteditoren (z.B. VIM, notepad++)
 \end{itemize}
-Der generelle Ablauf zum Erstellen eines Protokolls sollte sich wie folgt gestalten. Zunächst wird das verwendete Template (also die Vorlage) in einen vernünftig benannten Ordner (vorzugsweise /Praktikum/xxx  mit xxx=Versuchsnummer) kopiert. Das Template ist im Kautschuk Repo zu finden und sollte bei sinnvollen Änderungen stets gepusht werden, sodass alle dieselbe Vorlage verwenden.
+Der generelle Ablauf zum Erstellen eines Protokolls sollte sich wie folgt gestalten. Zunächst wird das verwendete Template (also die Vorlage) in einen vernünftig benannten Ordner (vorzugsweise /Praktikum/xxx  mit xxx=Versuchsnummer) kopiert. Das Template ist im Kautschuk Repo zu finden und sollte bei sinnvollen Änderungen stets gepusht werden, sodass alle dieselbe Vorlage verwenden. Dann solltet ihr schauen, ob es den Versuch bereits gibt im Repo. Falls nicht, solltet ihr gesteigerten Wert auf die Nachvollziehbarkeit eures Codes legen. In diesem Fall seid ihr es, die diesen Versuch nämlich im Repo erstellen werdet.
 
 Die Daten aus den Messungen müssen ins Digitale übertragen werden. Dazu zwei Möglichkeiten:
 \begin{itemize}
   \item Manuelles Anlegen von .txt Dateien im Ordner "/Praktikum/xxx/Messdaten".
-  \item Erstellen von .txt mit Hilfe von Python (der berühmte Datenersteller.py). Aber auch hierbei sollten die Daten in dem "/Praktikum/xxx/Messdaten" Ordner landen.
+  \item Erstellen von .txt mit Hilfe von Python (der berühmte Datenersteller.py). Aber auch hierbei sollen die Daten in dem "/Praktikum/xxx/Messdaten" Ordner landen.
 \end{itemize}
-Das Erstellen der Messdaten sollte ein einmaliger Schritt sein. Wenn der Datenersteller verwendet wird, sollte aber der Ordner Messdaten beim Klonen des Repos mitkopiert werden, sodass dieser Arbeitsschritt im Nachhinein nicht wiederholt werden muss. Die .txt Dateien sollten ein sinnvolles Format haben. Zum Beispiel könnten die Dateien nach Aufgabenteilen benannt werden, z.B. "a.txt". Die erste Zeile einer jeden .txt Datei im Ordner Messdaten muss eine Beschreibung der Spalten samt Einheiten beinhalten, natürlich ist diese Zeile auszukommentieren. Z.B. "\#Wert[-] R\_2[Ohm]   R\_3/R\_4[-]". Jeder soll wissen, was genau ihr dort eingetragen habt.
+Die .txt Dateien sollten ein sinnvolles Format haben. Zum Beispiel könnten die Dateien nach Aufgabenteilen benannt werden, z.B. "a.txt". Die erste Zeile einer jeden .txt Datei im Ordner Messdaten muss eine Beschreibung der Spalten samt Einheiten beinhalten, natürlich ist diese Zeile auszukommentieren. Z.B.
+\begin{lstlisting}
+  # Wert[-]   R_2[Ohm]   R_3/R_4[-]
+\end{lstlisting}
+Jeder soll wissen, was genau ihr dort eingetragen habt, ggf. müssen weitere Kommentare helfen, um eindeutig anzuzeigen, welche Daten vorliegen.
 
-Der nächste Schritt ist die Bearbeitung der Datei "/Praktikum/xxx/PythonSkript.py", welche sich durch das Kopieren des Templates bereits an richtiger Stelle befindet. In diesem Skript sind die gängigen Code Examples als Kommentare hinterlegt, sodass diese direkt an die benötigte Stelle kopiert werden können. Nun einige Richtlinien zur Lesbarkeit eures Codes:
+Der nächste Schritt ist die Bearbeitung der Datei "/Praktikum/xxx/PythonSkript.py", welche sich durch das Kopieren des Templates bereits an richtiger Stelle befindet. In diesem Skript sind die gängigen Code Examples als Kommentare hinterlegt, sodass diese direkt an die benötigte Stelle kopiert werden können. Diese .py ist per default die einzige python Datei, die von make ausgeführt wird. Nun zum generellen Vorgehen - Beispiel-Code hierzu findet sich in PythonSkript.py wieder.
 \begin{itemize}
-  \item Ganz oben steht, was alles importiert wird. Meistens sollte das reichen, was die Vorlage bereits vorgibt.
-  \item Dann werden ggf. benötigte Funktionen deklariert mit einer sprechenden Namengebung, z.B.
+  \item Nach den imports werden ggf. benötigte Funktionen deklariert mit einer sprechenden Namengebung, z.B.
   \begin{lstlisting}
     def phi(param_a, Temperatur)
   \end{lstlisting}
-  \item Nun werden globale Konstanten deklariert und in einem Kommentar beschrieben, z.B. \emph{R = const.physical\_constants["molar gas constant"]} \#\emph{Array of value, unit, error}
-  \item Erst jetzt werden die Aufgabenteile behandelt. Dazu wird eine kommentierte Abgrenzung verwendet und es folgt der Kommentar \#\emph{Aufgabenteil a)}.
-  \item Variablen werden deklariert, häufig durch Einlesen der Messwerte, z.B. \emph{c\_W = np.genfromtxt('Messdaten/spezifische\_Waermekapazitaet.txt', unpack=True)}. Auch hier sollten so wie überall die Variablennamen sprechend sein, dh. dem Leser anzeigen, was sie darstellen.
-  \item Jetzt sollten ggf. die Variablen in SI Einheiten umgerechnet werden. Die jeweilige Einheit ist durch einen Kommentar anzuzeigen.
-  \item Häufig erfolgt dann ein Curve-Fit. Dieser kann mit den bereit gestellten Funktionen durchgeführt werden, z.B. \emph{params\_max = ucurve\_fit(reg.reg\_linear, t\_extern, U\_pos\_ges\_log)}. In der Datei "Regression.py" sind die verschiedenen Fit-Funktionen vorgehalten.
-  \item Die Ergebnisse der Regression werden in neue Variablen geschrieben, z.B. \emph{R\_a, Offset\_a = params\_max}. Dann werden sie über die Funktion \emph{write(string filename, string content)} mit Hilfe der Funktion \emph{make\_SI(double value, unit, figures)} zur Wiedergabe im Tex-Dokument in den build-Ordner geschrieben, z.B. \emph{write('build/R\_daempfung\_theo.tex', make\_SI(R\_1[0], r'\textbackslash ohm', figures=1))}. Die Funktion \emph{make\_SI} ermöglicht die vernünftige Formatierung zur Ausgabe im PDF, vor Allem durch die Wahl der Nachkommastellen mit der Angabe von \emph{figures}.
-  \item Häufig werden Datensätze auch in Tabellen gespeichert. Hierzu empfiehlt sich für eine gute Formatierung die Nutzung der Funktion \emph{make\_full\_table}, welche die Verwendung von \emph{make\_table} voraussetzt. Ein beschriebenes Beispiel hierzu findet sich in der PythonSkript Datei wieder. Es gibt außerdem eine kleine Doku dazu hier im Kautschuk Repo. Wichtig ist, dass \emph{make\_full\_table} eine komplett fertig formatierte Tabelle ausgibt, die in Latex nur noch durch z.B. \emph{\textbackslash input build/Tabelle\_b\_texformat.tex} eingebunden werden muss. Label und Caption sind also jetzt nicht mehr in Latex, sondern in Python einzustellen.
-  \item Ebenso finden sich für das Plotten von Daten eine Reihe von immer wieder verwendeten Funktionen in unserer Vorlage. Es ist z.B. möglich, die Arraygrenzen automatisch zu setzen. Hier gibt es im Rahmen der matplotlib sicher eine ganze Reihe von speziellen Anwendungen. Findet sich bei der Recherche etwas Nützliches, so sollte dies durch entsprechende Ergänzungen in dem Beispielblock allen im Kautschuk Repo verfügbar gemacht werden. Wir nutzen im Übrigen matplotlibrc, was eine vernünftige Formatierung von Grafiken ermöglicht, aber das Rechenzeit bei der Ausführung des Python Skripts deutlich erhöht. Zum schnellen Testen empfiehlt es sich, die Plots zunächst auszukommentieren. Wie die Plots ins tex Dokument eingebunden werden, kann den Beispielen in "/Praktikum/xxx/content/auswertung.tex" entnommen werden. Es gibt verschiedene Anordnungsoptionen.
+  \item Nun werden globale Konstanten deklariert und in einem Kommentar beschrieben, z.B.
+  \begin{lstlisting}
+    R = const.physical_constants["molar gas constant"]       #Array of value, unit, error
+  \end{lstlisting}
+  \item Erst jetzt werden die Aufgabenteile behandelt. Dazu wird eine kommentierte Abgrenzung verwendet und es folgt die Kommentarzeile
+  \begin{lstlisting}
+      ########## Aufgabenteil a) ##########
+  \end{lstlisting}
+  \item Variablen werden deklariert, häufig durch Einlesen der Messwerte, und in SI umgerechnet, z.B.
+  \begin{lstlisting}
+    c_W = np.genfromtxt('Messdaten/spezifische_Waermekapazitaet.txt', unpack=True)
+    c_W *= 1e-3      # J / (kg*K)
+  \end{lstlisting}
+  \item Häufig erfolgt dann ein Curve-Fit. Dieser kann mit den bereit gestellten Funktionen durchgeführt werden, z.B.
+  \begin{lstlisting}
+    params_max = ucurve_fit(reg_linear, t_extern, U_pos_ges_log)
+  \end{lstlisting}
+  In der Datei "regression.py" sind verschiedene Fit-Funktionen vorgehalten.
+  \item Die Ergebnisse der Regression werden in neue Variablen geschrieben, z.B.
+  \begin{lstlisting}
+    R_a, Offset_a = params_max
+  \end{lstlisting}
+  Dann werden sie über die Funktionen
+  \begin{lstlisting}
+    write(string filename, string content)
+    make_SI(double value, unit, figures)
+  \end{lstlisting}
+  zur Wiedergabe im Tex-Dokument in den build-Ordner geschrieben. Die Funktion \emph{make\_SI} ermöglicht die vernünftige Formatierung zur Ausgabe im PDF, vor Allem durch die Wahl der Nachkommastellen mit der Angabe von \emph{figures}.
+  \item Häufig werden Datensätze auch in Tabellen gespeichert. Hierzu empfiehlt sich für eine gute Formatierung die Nutzung der Funktion \emph{make\_full\_table}, welche die Verwendung von \emph{make\_table} voraussetzt. Ein beschriebenes Beispiel hierzu findet sich in der PythonSkript Datei wieder. Es gibt außerdem eine kleine Doku dazu hier im Kautschuk Repo. Wichtig ist, dass \emph{make\_full\_table} eine komplett fertig formatierte Tabelle ausgibt, die in Latex nur noch durch z.B.
+  \begin{lstlisting}
+    \input build/Tabelle_b_texformat.tex
+  \end{lstlisting}
+  eingebunden werden muss. Label und Caption sind also jetzt nicht mehr in Latex, sondern in Python einzustellen.
+  \item Ebenso finden sich für das Plotten von Daten eine Reihe von immer wieder verwendeten Funktionen in unserer Vorlage. Es ist z.B. möglich, die Arraygrenzen automatisch zu setzen. Hier gibt es im Rahmen der matplotlib sicher eine ganze Reihe von speziellen Anwendungen. Findet sich bei der Recherche etwas Nützliches, so sollte dies durch entsprechende Ergänzungen in dem Beispielblock allen im Kautschuk Repo verfügbar gemacht werden. Wir nutzen im Übrigen matplotlibrc, was eine vernünftige Formatierung von Grafiken ermöglicht, aber die Rechenzeit bei der Ausführung des Python Skripts deutlich erhöht. Zum schnellen Testen empfiehlt es sich, die Plots zunächst auszukommentieren. Wie die Plots ins tex Dokument eingebunden werden, kann den Beispielen in "/Praktikum/xxx/content/auswertung.tex" entnommen werden. Es gibt verschiedene Anordnungsoptionen.
 \end{itemize}
-Das Tex-Dokument soll dann jeder so erstellen, wie er es für richtig hält. Relevant für uns ist in erster Linie "PythonSkript.py". Trotzdem gibt es sicher den ein oder anderen, der euren gesamten Code gerne ausführen würde. Dazu gilt als Regel Nummer vier, dass das Klonen des Repos es einer beinhalteten MAKE-file ermöglicht, zu bauen, OHNE dass man noch irgend etwas tun muss! Die Standard-make file ist in der Vorlage enthalten. Schließlich wäre es noch nett, in den Ordner "/Praktikum/xxx/final/" die abtestierten Protokolle in PDF-Form zu legen. Zu guter letzt pusht ihr den xxx-Ordner an die entsprechende Stelle im Kautschuk Repo, sodass nun jeder Zugriff darauf hat und es von jedem Versuch möglichst schnell eine Referenz gibt.
+Das Tex-Dokument soll dann jeder so erstellen, wie er es für richtig hält. Relevant für uns ist in erster Linie "PythonSkript.py". Trotzdem gibt es sicher den ein oder anderen, der euren gesamten Code gerne ausführen würde. Dazu gilt als \textbf{Regel Nummer vier}, dass das Klonen des Repos es einer beinhalteten MAKE-file ermöglicht, zu bauen, OHNE dass man noch irgend etwas tun muss! Die Standard-make file ist in der Vorlage enthalten. Schließlich wäre es noch nett, in den Ordner "/Praktikum/xxx/final/" die abtestierten Protokolle in PDF-Form zu legen. Zu guter letzt pusht ihr den xxx-Ordner an die entsprechende Stelle im Kautschuk Repo, sodass nun jeder Zugriff darauf hat und es von jedem Versuch möglichst schnell eine Referenz gibt.

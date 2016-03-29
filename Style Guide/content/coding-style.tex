@@ -1,5 +1,5 @@
 \def\code#1{\texttt{#1}}
-\lstset{language=Python}  
+\lstset{language=Python}
 
 \section{Coding Style}
 \label{sec:cs}
@@ -32,7 +32,7 @@ Hier einige Leitlinien für einen sauberen und auch von anderen gut lesbaren Pyt
 
 	Insbesondere die Datentypen, die die Methode annimmt und ausgibt sollten spezifiziert werden, wenn dies nicht aus der Benennung hervorgeht (\code{IsWindowOpen()} gibt mit Sicherheit ein boolean zurück, bei \code{GenerateInfoGraphic()} ist das aber nicht mehr klar). Docstrings können auch für Variablen genutzt werden.
 
-	\item Ein für Physiker sinnvolle naming convention ist folgende:
+	\item Eine für Physiker sinnvolle naming convention ist folgende:
 	\begin{itemize}
 		\item Variablennamen und Funktionen benutzen Kleinschreibung für Wörter, physikalische Bezeichner (\code{T} für Temperatur, \code{phi} für einen Winkel) werden so gut es geht in gültige Variablennamen übertragen.
 
@@ -41,9 +41,9 @@ Hier einige Leitlinien für einen sauberen und auch von anderen gut lesbaren Pyt
 		\item Meistens ist anders als in einer Rechnung auf Papier nicht sofort ersichtlich, was für ein Winkel, etc. gemeint ist; es schadet selten, einen Variablennamen zu wählen, der auch noch 15 Zeilen später aussagekräftig ist.
 
 		\item Hilfsvariablen sind sinnvoll zu benennen; \code{m2} und \code{bla} sind sehr schlechte Namen für Variablen, auch wenn man sie nur für ein paar Zeilen braucht. Es erleichtert das Lesen des Codes ungemein, diesen aussagekräftige Namen zu geben. Nebenbei findet man so auch Fehler im eigenen Code schneller.\\
-		Einen einfachen counter in einer for-Schleife, dessen Sinn auch ohne langen Namen ersichtlich ist, muss man aber nicht umändern.
+		Einen einfachen counter in einer for-Schleife, dessen Sinn auch ohne langen Namen ersichtlich ist, muss man aber nicht umändern. Hier sollten $i$, $j$ oder $cnt$ verwendet werden.
 
-		\item Wenn eine Variable einheitenbehaftet ist, wird die Einheit hinter der Deklaration angegeben. Es sind immer Grundeinheiten zu verwenden (also etwa immer Meter, nie Kilometer).
+		\item Wenn eine Variable einheitenbehaftet ist, wird die Einheit hinter der Deklaration als Kommentar angegeben. Es sind immer Grundeinheiten zu verwenden (also etwa immer Meter, nie Kilometer).
 
 		\item Beispiel:
 		\lstinputlisting{resources/naming.py}

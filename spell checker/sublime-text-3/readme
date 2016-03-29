@@ -2,4 +2,6 @@ Unter Linux: Die Zip-Datei nach "~/.config/sublime-text-3/Packages/" extrahieren
 
 Sonst kann man unter Preferences->Browse Packages den Pakete-Ordner öffnen.
 
+Weitere Instruktionen: https://www.sublimetext.com/docs/3/spell_checking.html
+
 	- Max
