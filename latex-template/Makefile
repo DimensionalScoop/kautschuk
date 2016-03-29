@@ -19,7 +19,7 @@ endif
 
 all: build/Protokoll.pdf
 
-build/Protokoll.pdf: FORCE $(addprefix build/, table.tex a.tex b.tex c.tex d.tex plot.pdf) | build      # hier Abhängigkeiten einstellen
+build/Protokoll.pdf: FORCE $(addprefix build/, table.tex a.tex b.tex c.tex d.tex plot.pdf) | build messdaten     # hier Abhängigkeiten einstellen
 	  TEXINPUTS="$(call translate,build:)" \
 	  max_print_line=1048576 \
 	latexmk \
@@ -34,6 +34,9 @@ build/plot.pdf: PythonSkript.py curve_fit.py table.py meine-matplotlibrc header-
 	TEXINPUTS="$(call translate,$(pwd):)" python PythonSkript.py
 
 $(addprefix build/, table.tex a.tex b.tex c.tex d.tex): build/plot.pdf
+
+messdaten: datenersteller.py
+	python datenersteller.py
 
 build:
 	mkdir -p build

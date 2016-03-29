@@ -6,7 +6,7 @@
 ]{scrartcl}
 
 \usepackage{geometry}
-\geometry{a4paper,left=25mm,right=25mm, top=3cm, bottom=3cm} 
+\geometry{a4paper,left=25mm,right=25mm, top=3cm, bottom=3cm}
 
 % Paket float verbessern
 \usepackage{scrhack}
@@ -62,6 +62,22 @@
   math-greek=default, % ┐ mit unicode-math zusammenarbeiten
   text-greek=default, % ┘
 ]{mhchem}
+
+% tikzpicture ("Zeichenprogramm")
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{positioning}
+\tikzset{
+  Pfeil/.style={thick,shorten >=#1,shorten <=#1,->,>=latex}, % für Peile
+  UPfeil/.style={blue,Pfeil=#1,font={\sffamily\itshape}},% für Spannungspfeile
+  IPfeil/.style={red,Pfeil=#1,font={\ttfamily\itshape}} % für Strompfeile
+}
+%Volt- und Amperemeter festlegen:
+\tikzset{circuit declare symbol = Us}
+\tikzset{set Us graphic ={draw,generic circle IEC, minimum size=5mm,info=center:$U_s$}}
+
+\tikzset{circuit declare symbol = voltmeter}
+\tikzset{set voltmeter graphic ={draw,generic circle IEC, minimum size=5mm,info=center:V}}
 
 % richtige Anführungszeichen
 \usepackage[autostyle]{csquotes}
