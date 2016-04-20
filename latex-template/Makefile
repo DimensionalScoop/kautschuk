@@ -30,7 +30,7 @@ build/Protokoll.pdf: FORCE $(addprefix build/, table.tex a.tex b.tex c.tex d.tex
 		--synctex=1 \
 	Protokoll.tex
 
-build/plot.pdf: PythonSkript.py curve_fit.py table.py meine-matplotlibrc header-matplotlib.tex | build    # hier Abhängigkeiten einstellen
+build/plot.pdf: PythonSkript.py ./python_custom_scripts/curve_fit.py ./python_custom_scripts/table.py meine-matplotlibrc header-matplotlib.tex | build    # hier Abhängigkeiten einstellen
 	TEXINPUTS="$(call translate,$(pwd):)" python PythonSkript.py
 
 $(addprefix build/, table.tex a.tex b.tex c.tex d.tex): build/plot.pdf
