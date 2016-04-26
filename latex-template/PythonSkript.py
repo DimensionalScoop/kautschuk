@@ -60,6 +60,7 @@ from error_calculation import(
 
 ########## ERRORS ##########
 # R_unc = ufloat(R[0],R[2])
+# ValueWithErrorFromArray = ufloat(np.mean(array), np.std(array))
 # U = 1e3 * unp.uarray(U, U_err)
 # Rx_mean = np.mean(Rx)                 # Mittelwert und syst. Fehler
 # Rx_mean_err = MeanError(noms(Rx))     # Fehler des Mittelwertes
@@ -157,3 +158,4 @@ from error_calculation import(
 
 ########## DIFFERENT STUFF ##########
 # R = const.physical_constants["molar gas constant"]      # Array of value, unit, error
+#                                                         # http://docs.scipy.org/doc/scipy/reference/constants.html
