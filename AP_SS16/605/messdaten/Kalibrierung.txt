@@ -1,0 +1,5 @@
+# Rohwinkel Helium in °   , t zur Berechnung von Delta_t
+299.8 0.40
+299.2 6.43
+295.3 2.50
+295.1 0.21

@@ -1,0 +1,23 @@
+\section{Diskussion}
+\label{sec:Diskussion}
+In Ermangelung einer Herstellerangabe für den Wert der Gitterkonstante des verwendeten Reflexionsgitters, lässt sich hierzu nur sagen, dass die gemessene Konstante
+\begin{equation*}
+  g = \input{build/gitterkonstante.tex}
+\end{equation*}
+im Erwartungsbereich liegt, denn sie ist von der Größenordnung der Wellenlänge des sichtbaren Lichtes und daher zur Sichtbarmachung von Beugungseffekten geeignet. Die Abbildung \ref{fig:linreg} zeigt, dass die aufgenommenen Messwerte für Helium dem erwarteten linearen Zusammenhang folgen.
+
+Bei der Berechnung der Abschirmungszahlen fällt zunächst auf, dass die Energiedifferenzen $E_D$ von Kalium mitunter deutliche Unterschiede je nach betrachteter Dublettlinie zeigen. Nominell beträgt hier die größte Abweichung
+\begin{equation*}
+  ((\Delta E_D)_\text{max} - (\Delta E_D)_\text{min} ) / \,\overline{\Delta E_D}  = \input{build/RelFehlerEdKalium.tex} \; ,
+\end{equation*}
+während auch die Messwerte für Natrium eine Abweichung
+\begin{equation*}
+  ((\Delta E_D)_\text{max} - (\Delta E_D)_\text{min} ) / \,\overline{\Delta E_D}  = \input{build/RelFehlerEdNatrium.tex}
+\end{equation*}
+beinhalten. Bereits eine Abschätzung nach Augenmaß hat während des Versuchs den unterschiedlichen Abstand der Dublettlinien vermuten lassen. Die Ursache hierfür bleibt unklar. Da die Energiedifferenz jedoch bloß mit der vierten Wurzel in die Berechnung der Abschirmungszahl einfließt, fällt der Effekt nicht allzu stark ins Gewicht und die vorgenommene Mittelung der Abschirmungszahlen zeigt eine sehr gute Übereinstimmung mit den Literaturwerten in \cite{lit1}.
+\begin{align*}
+  \sigma_{2, \text{Na, mess}} &= \input{build/sigma_natrium.tex}  & & \sigma_{2, \text{Na, lit}} = 7,46   \\
+  \sigma_{2, \text{K, mess}} &= \input{build/sigma_kalium.tex}  & & \sigma_{2, \text{K, lit}} \,\,= 13,06     \\
+  \sigma_{2, \text{Rb, mess}} &= \input{build/sigma_rubidium.tex}  & & \sigma_{2, \text{Rb, lit}} = 26,95
+\end{align*}
+Insbesondere für Rubidium liegt der Messwert von nur einer vermessenen Dublettlinie tatsächlich sehr nahe an dem Literaturwert. Die Ungenauigkeiten der Messaparatur, welche sich unter Anderem in den erwähnten Abweichungen der Energiedifferenzen niederschlagen, rühren vermutlich von den Ableseungenauigkeiten. Insbesondere die Messung mit Hilfe des Okularmikrometers hat sich dabei als vergleichsweise schwierig gestaltet. Das Abzählen von Umdrehungen einer Mikrometerschraube bei gleichzeitiger Konzentration auf das im Okular Sichtbare birgt dabei ein Risiko.

@@ -1,0 +1,7 @@
+# "Roh-"Winkel für Natrium Spektrallinien in °   , Skalenwert s zur Berechnung von Delta_s
+290.7 0.36
+290.6 0.81
+289.3 0.43
+289.2 0.80
+287.5 0.53
+287.4 0.92

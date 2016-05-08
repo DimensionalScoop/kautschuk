@@ -1,0 +1,3 @@
+# "Roh-"Winkel für Rubidium Spektrallinien in °   , Skalenwert s zur Berechnung von Delta_s
+287.0 0.28
+286.4 6.61

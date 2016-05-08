@@ -1,0 +1,9 @@
+# "Roh-"Winkel für Kalium Spektrallinien in °   , Skalenwert s zur Berechnung von Delta_s
+293.2 2.29
+293.1 0.45
+293.1 0.94
+293.0 -0.08
+290.1 0.26
+289.9 1.62
+289.8 1.69
+289.7 0.09
