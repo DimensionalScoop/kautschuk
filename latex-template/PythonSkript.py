@@ -34,6 +34,7 @@ from table import (
     make_composed_table,
     make_SI,
     write,
+    search_replace_within_file,
 )
 from regression import (
     reg_linear,
@@ -50,7 +51,6 @@ from error_calculation import(
 
 
 
-
 ################################ FREQUENTLY USED CODE ################################
 #
 ########## IMPORT ##########
@@ -60,7 +60,6 @@ from error_calculation import(
 
 ########## ERRORS ##########
 # R_unc = ufloat(R[0],R[2])
-# ValueWithErrorFromArray = ufloat(np.mean(array), np.std(array))
 # U = 1e3 * unp.uarray(U, U_err)
 # Rx_mean = np.mean(Rx)                 # Mittelwert und syst. Fehler
 # Rx_mean_err = MeanError(noms(Rx))     # Fehler des Mittelwertes
@@ -118,16 +117,17 @@ from error_calculation import(
 #
 # write('build/Tabelle_b.tex', make_table([a,b,c,d,e],[0, 1, 0, 1, 1]))     # Jeder fehlerbehaftete Wert bekommt zwei Spalten
 # write('build/Tabelle_b_texformat.tex', make_full_table(
-#     'Messdaten Kapazitätsmessbrücke.',
-#     'table:A2',
-#     'build/Tabelle_b.tex',
-#     [1,2,3,4,5],              # Hier aufpassen: diese Zahlen bezeichnen diejenigen resultierenden Spaltennummern,
-#                               # die Multicolumns sein sollen
-#     ['Wert',
+#     caption = 'Messdaten Kapazitätsmessbrücke.',
+#     label = 'table:A2',
+#     source_table = 'build/Tabelle_b.tex',
+#     stacking = [1,2,3,4,5],              # Hier aufpassen: diese Zahlen bezeichnen diejenigen resultierenden Spaltennummern, die Multicolumns sein sollen
+#     units = ['Wert',
 #     r'$C_2 \:/\: \si{\nano\farad}$',
 #     r'$R_2 \:/\: \si{\ohm}$',
 #     r'$R_3 / R_4$', '$R_x \:/\: \si{\ohm}$',
-#     r'$C_x \:/\: \si{\nano\farad}$']))
+#     r'$C_x \:/\: \si{\nano\farad}$'],
+#     replaceNaN = True,                      # default = false
+#     replaceNaNby = 'not a number'))         # default = '-'
 #
 ## Aufsplitten von Tabellen, falls sie zu lang sind
 # t1, t2 = np.array_split(t * 1e3, 2)
@@ -158,4 +158,4 @@ from error_calculation import(
 
 ########## DIFFERENT STUFF ##########
 # R = const.physical_constants["molar gas constant"]      # Array of value, unit, error
-#                                                         # http://docs.scipy.org/doc/scipy/reference/constants.html
+# search_replace_within_file('build/Tabelle_test.tex','find me','found you')    # Selbsterklärend

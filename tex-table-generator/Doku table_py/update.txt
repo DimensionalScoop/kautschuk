@@ -1,0 +1,3 @@
+Doku:
+strings werden left aligned
+punkte und zahlen haben in strings nichts zu suchen, genauso wie & und //
