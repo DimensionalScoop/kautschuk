@@ -42,10 +42,13 @@ from regression import (
     reg_cubic
 )
 from error_calculation import(
+    mean,
     MeanError
 )
+from utility import(
+    constant
+)
 ################################################ Finish importing custom libraries #################################################
-
 
 
 
@@ -62,7 +65,8 @@ from error_calculation import(
 # R_unc = ufloat(R[0],R[2])
 # U = 1e3 * unp.uarray(U, U_err)
 # Rx_mean = np.mean(Rx)                 # Mittelwert und syst. Fehler
-# Rx_mean_err = MeanError(noms(Rx))     # Fehler des Mittelwertes
+# Rx_mean_with_error = mean(Rx, 0)      # unp.uarray mit Fehler und Fehler des Mittelwertes, die 0 gibt an, dass in einem R^2 array jeweils die Zeilen gemittelt werden sollen
+# Rx_mean_err = MeanError(noms(Rx))     # nur der Fehler des Mittelwertes
 #
 ## Relative Fehler zum späteren Vergleich in der Diskussion
 # RelFehler_G = (G_mess - G_lit) / G_lit
