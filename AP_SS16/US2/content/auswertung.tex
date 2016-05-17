@@ -1,0 +1,237 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\subsection{Ausmessung des Acryl-Blocks mittels A-Scan}
+
+Die Ausmessung des Blocks via Schieblehre und A-Scan führt zu den Daten, welche in Tabelle \ref{table:1} dargestellt sind.
+\input{build/Tabelle_a_texformat.tex}
+Hierbei beschreibt $D_\text{oben}$ den mit der Schieblehre bestimmte Abstand von der oberen Kante der Löcher bis zur Kante des Acrylblocks.\\
+Zur Bestimmung der Durchmesser mittels A-Scan wird zunächst aus der Eintrittslaufzeit
+\begin{align*}
+  t_\text{start} &= \input{build/t_start.tex}
+\end{align*}
+und aus der Austrittslaufzeit
+\begin{align*}
+  t_\text{end} &= \input{build/t_end.tex}
+\end{align*}
+die Höhe des Blockes zu
+\begin{align*}
+  h &= \input{build/hoehe_mess.tex}
+\end{align*}
+bestimmt.
+Aus den ermittelten Laufzeiten werden, unter Berücksichtigung der Eintrittslaufzeit, die Abstände $D_\text{oben,gem}$ der oberen Enden der Fehlstellen zu dem oberen Ende des Blockes sowie die Abstände $D_\text{unten,gem}$ der unteren Enden der Fehlstellen zu dem unteren Ende des Blockes bestimmt.
+Für diese Berechnung wird eine Phasengeschwindigkeit in Acryl von $\SI{2730}{\metre\per\second}$ im Weg-Zeit-Gesetz verwendet. \cite{schall}\\
+Zusammen mit der ermittelten Höhe des Blockes ergeben sich die Durchmesser der Fehlstellen $D_\text{loch,gem}$.\\
+Die Messung der kleinen Fehlstellen $10$ und $11$ ergibt einen Abstand von $\Delta D = \SI{1.7}{\milli\metre}$.
+Zudem ist anzumerken, dass der tatsächliche Abstand der beiden letzten Fehlstellen $\Delta D = \SI{1.8}{\milli\metre}$ entspricht.
+Folglich besitzt der A-Scan eine Auflösung von etwa $\SI{0.1}{\milli\metre}$.\\
+
+\subsection{Ausmessung des Acryl-Blocks mittels B-Scan}
+Das Ergebnis des B-Scans von oben ist in Abbildung \ref{figure:1} wiedergegeben; das des unteren in Abbildung \ref{figure:2}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=7.5cm]{messdaten/b_oben.png}
+  \caption{Ergebnis des B-Scans von oben.}
+  \label{figure:1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=7.5cm]{messdaten/b_unten.png}
+  \caption{Ergebnis des B-Scans von unten.}
+  \label{figure:2}
+\end{figure}
+
+Aus diesen beiden Grafiken ergeben sich die Messdaten aus Tabelle \ref{table:2}.
+\input{build/Tabelle_b_texformat.tex}
+Es wird wiederum der mit der Schieblehre bestimmte Wert $D_\text{oben}$ angegeben, außerdem die aus der Laufzeit im B-Scan bestimmten Abstände der Löcher nach oben, nach unten und der daraus resultierende Fehlstellendurchmesser.
+Hierbei wird die Phasengeschwindigkeit in Acryl sowie die aus der Eintrittszeit
+\begin{align*}
+  t_\text{start} &= \input{build/t_start2.tex}
+\end{align*}
+und der Austrittszeit
+\begin{align*}
+  t_\text{end} &= \input{build/t_end2.tex}
+\end{align*}
+bestimmte Blockhöhe von
+\begin{align*}
+  h &= \input{build/hoehe_mess2.tex}
+\end{align*}
+berücksichtigt.
+In der Diskussion werden die Ergebnisse aus A- und B-Scan verglichen.
+
+\subsection{Untersuchung des Herzmodells}
+
+\subsubsection{Bestimmung der Laufzeit eines Echos in Wasser}
+
+Zunächst wird ein A-Scan, der in Abbildung \ref{figure:5} dargestellt ist, durchgeführt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=9cm]{messdaten/herz_a.png}
+  \caption{A-Scan der Herzmembran.}
+  \label{figure:5}
+\end{figure}
+Es werden die Laufzeiten
+\begin{align*}
+  t_1 &= \input{build/s_1.tex}.
+\end{align*}
+sowie
+\begin{align*}
+  t_2 &= \input{build/s_2.tex}.
+\end{align*}
+abgelesen, woraus sich ein gemessener Abstand von
+\begin{align*}
+  s &= \input{build/h_bla.tex}.
+\end{align*}
+ergibt.
+Bei dieser Berechnung wird die Phasengeschwindigkeit in Wasser
+\begin{align*}
+  c_{\text{Wasser}} &= \input{build/c_wasser.tex}
+\end{align*}
+berücksichtigt.\cite{schall}
+
+\subsubsection{Bestimmung der Herzfrequenz und des Herzzeitvolumens}
+Ausgangspunkt der Messung der Herzfrequenz und des Herzvolumens ist der TM-Scan aus Abbildung \ref{figure:3}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=9cm]{messdaten/herz.png}
+  \caption{TM-Scan des schlagenden Herzmodells.}
+  \label{figure:3}
+\end{figure}
+
+Dabei ergeben sich für die Amplituden die Werte
+\begin{align*}
+  A_1 &= \SI{75}{\micro\second},\\
+  A_2 &= \SI{77}{\micro\second},\\
+  A_3 &= \SI{77}{\micro\second},\\
+  A_4 &= \SI{77}{\micro\second},\\
+  A_5 &= \SI{77}{\micro\second}.
+\end{align*}
+Die zeitlichen Abstände der Herzschläge betragen
+\begin{align*}
+  t_1 &= \SI{2,10}{\second},\\
+  t_2 &= \SI{2,04}{\second},\\
+  t_3 &= \SI{2,04}{\second},\\
+  t_4 &= \SI{2,06}{\second}.
+\end{align*}
+Daraus ergibt sich eine mittlere Herzfrequenz von
+\begin{align*}
+  f_{\text{Herz}} &= \input{build/hf.tex}.
+\end{align*}
+Der endsystolische Durchmesser (ESD) wird über die Formel
+\begin{equation}
+  ESD = \frac{1}{2} c_{\text{Wasser}} \cdot \text{A}
+\end{equation}
+gemittelt auf
+\begin{align*}
+  ESD &= \input{build/ESD.tex}
+\end{align*}
+bestimmt.
+Damit lässt sich nun das Herzvolumen, welches auf eine Kugel mittels
+\begin{equation}
+  V_{\text{Herz}} = \frac{4\pi}{3} \left(\frac{ESD}{2} \right)³
+\end{equation}
+genähert wird, zu
+\begin{align*}
+  V_{\text{Herz}} &= \input{build/ESV.tex}
+\end{align*}
+berechnet.
+Daraus folgt ein Herzzeitvolumen,
+\begin{equation}
+  HZV = V_{\text{Herz}} \cdot f_{\text{Herz}},
+\end{equation}
+von etwa
+\begin{align*}
+  HZV &= \input{build/HZV.tex},
+\end{align*}
+wenn das enddiastolische Volumen für diesen Modellfall als $0$ angenommen wird.
+
+% % Examples
+% \begin{equation}
+%   U(t) = a \sin(b t + c) + d
+% \end{equation}
+%
+% \begin{align}
+%   a &= \input{build/a.tex} \\
+%   b &= \input{build/b.tex} \\
+%   c &= \input{build/c.tex} \\
+%   d &= \input{build/d.tex} .
+% \end{align}
+% Die Messdaten und das Ergebnis des Fits sind in Abbildung~\ref{fig:plot} geplottet.
+%
+% %Tabelle mit Messdaten
+% \begin{table}
+%   \centering
+%   \caption{Messdaten.}
+%   \label{tab:data}
+%   \sisetup{parse-numbers=false}
+%   \begin{tabular}{
+% % format 1.3 bedeutet eine Stelle vorm Komma, 3 danach
+%     S[table-format=1.3]
+%     S[table-format=-1.2]
+%     @{${}\pm{}$}
+%     S[table-format=1.2]
+%     @{\hspace*{3em}\hspace*{\tabcolsep}}
+%     S[table-format=1.3]
+%     S[table-format=-1.2]
+%     @{${}\pm{}$}
+%     S[table-format=1.2]
+%   }
+%     \toprule
+%     {$t \:/\: \si{\milli\second}$} & \multicolumn{2}{c}{$U \:/\: \si{\kilo\volt}$\hspace*{3em}} &
+%     {$t \:/\: \si{\milli\second}$} & \multicolumn{2}{c}{$U \:/\: \si{\kilo\volt}$} \\
+%     \midrule
+%     \input{build/table.tex}
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% % Standard Plot
+% \begin{figure}
+%   \centering
+%   \includegraphics{build/plot.pdf}
+%   \caption{Messdaten und Fitergebnis.}
+%   \label{fig:plot}
+% \end{figure}
+%
+% 2x2 Plot
+% \begin{figure*}
+%     \centering
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung1.pdf}
+%         \caption[]%
+%         {{\small Schaltung 1.}}
+%         \label{fig:Schaltung1}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung2.pdf}
+%         \caption[]%
+%         {{\small Schaltung 2.}}
+%         \label{fig:Schaltung2}
+%     \end{subfigure}
+%     \vskip\baselineskip
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung4.pdf}    % Zahlen vertauscht ... -.-
+%         \caption[]%
+%         {{\small Schaltung 3.}}
+%         \label{fig:Schaltung3}
+%     \end{subfigure}
+%     \quad
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung3.pdf}
+%         \caption[]%
+%         {{\small Schaltung 4.}}
+%         \label{fig:Schaltung4}
+%     \end{subfigure}
+%     \caption[]
+%     {Ersatzschaltbilder der verschiedenen Teilaufgaben.}
+%     \label{fig:Schaltungen}
+% \end{figure*}
