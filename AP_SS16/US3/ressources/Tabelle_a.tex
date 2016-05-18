@@ -1,0 +1,49 @@
+\begin{table}
+    \centering
+    \caption{Messdaten und daraus errechnete Geschwindigkeit für verschiedene Innendurchmesser.}
+    \label{table:A0}
+    \sisetup{parse-numbers=false}
+    \begin{tabular}{
+	S[table-format=2.0]
+	S[table-format=4.0]
+	@{${}\pm{}$}
+	S[table-format=3.0, table-number-alignment = left]
+	S[table-format=3.0]
+	@{${}\pm{}$}
+	S[table-format=2.0, table-number-alignment = left]
+	S[table-format=4.0]
+	@{${}\pm{}$}
+	S[table-format=3.0, table-number-alignment = left]
+	S[table-format=1.2]
+	@{${}\pm{}$}
+	S[table-format=1.2, table-number-alignment = left]
+	S[table-format=1.2]
+	@{${}\pm{}$}
+	S[table-format=1.2, table-number-alignment = left]
+	S[table-format=1.2]
+	@{${}\pm{}$}
+	S[table-format=1.2, table-number-alignment = left]
+	S[table-format=1.2]
+	@{${}\pm{}$}
+	S[table-format=1.2, table-number-alignment = left]
+	}
+	\toprule
+	{$\frac{P}{P_\text{max}} \:/\: \si{\percent}$}		& \multicolumn{2}{c}{$\Delta f_{30°} \:/\: \si{\hertz}$}		&
+	\multicolumn{2}{c}{$\Delta f_{15°} \:/\: \si{\hertz}$}		& \multicolumn{2}{c}{$\Delta f_{60°} \:/\: \si{\hertz}$}		&
+	\multicolumn{2}{c}{$v_{30°} \:/\: \si{\meter\per\second}$}		& \multicolumn{2}{c}{$v_{15°} \:/\: \si{\meter\per\second}$}		&
+	\multicolumn{2}{c}{$v_{60°} \:/\: \si{\meter\per\second}$}		& \multicolumn{2}{c}{$\overline{v} \:/\: \si{\meter\per\second}$}		\\
+	\midrule
+  \multicolumn{15}{c}{$\d_i = 7\si{\milli\meter}$} \\
+  \midrule
+    \input{build/Tabelle_a_7.tex}
+    \midrule
+    \multicolumn{15}{c}{$\d_i = 10\si{\milli\meter}$} \\
+    \midrule
+      \input{build/Tabelle_a_10.tex}
+      \midrule
+      \multicolumn{15}{c}{$\d_i = 16\si{\milli\meter}$} \\
+      \midrule
+        \input{build/Tabelle_a_16.tex}
+    \bottomrule
+    \end{tabular}
+    \end{table}

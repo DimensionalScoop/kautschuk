@@ -1,0 +1,192 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Die im Folgenden durchgeführten Ausgleichsrechnungen werden mit der \emph{curve fit} Funktion aus dem für \emph{Python} geschriebenen package \emph{NumPy}\cite{scipy} durchgeführt. Fehlerrechnungen werden mit dem für \emph{Python} geschriebenen package \emph{Uncertainties}\cite{uncertainties} ausgeführt.
+In \cite{skript} sind einige Parameter für die Auswertung angegeben, welche in Tabelle \ref{tab:parameter} aufgeführt sind.
+\begin{table}
+  \centering
+  \caption{Verschiedene für die Rechnungen benötigte Größen.}
+  \label{tab:parameter}
+  \begin{tabular}{p{0.4\textwidth} p{0.575\textwidth}}
+    \toprule
+    $c_L = 1800\si{\meter\per\second}$  & Schallgeschwindigkeit der Dopplerflüssigkeit  \\
+    $c_P = 2700\si{\meter\per\second}$  & Schallgeschwindigkeit im Prisma \\
+    $d_i = (7,10,16)\si{\milli\meter}$  & Innendurchmesser der verschiedenen Rohre \\
+    $d_a = (10,15,20)\si{\milli\meter}$ & Außendurchmesser der verschiedenen Rohre \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Strömungsgeschwindigkeiten an verschiedenen Rohrdurchmessern}
+Für die Kalkulation der Strömungsgeschwindigkeit wird zunächst der Dopplerwinkel $\alpha$ benötigt. Er ergibt sich nach $\ref{eq:Winkel}$ direkt aus dem Prismenwinkel  $\Theta$.
+\begin{align*}
+  \Theta = 15°  & \Rightarrow & \alpha = 80,1° \\
+  \Theta = 30°  & \Rightarrow & \alpha = 70,5° \\
+  \Theta = 60°  & \Rightarrow & \alpha = 54,7° \\
+\end{align*}
+Mit den Messwerten für die Frequenzdifferenz und der Grundfrequenz der Ultraschallsonde $\nu_0 = \SI{2}{\mega\hertz}$ können dann die Strömungsgeschwindigkeiten für die verschiedenen Pumpleistungen gemäß Gleichung $\ref{eq:geschwindigkeit}$ berechnet werden. Dabei wird für die Frequenzdifferenzen ein Fehler von $\pm7\si{\percent}$ angenommen, denn die in der Software ablesbaren Werte sind Schwankungen unterlegen. Die Tabelle \ref{table:A0} fasst die Ergebnisse für die drei betrachteten Innendurchmesser aus Tabelle \ref{tab:parameter} zusammen. In der letzten Spalte ist jeweils der aus den drei Datenpunkten $v_{15°}$, $v_{30°}$ und $v_{60°}$ errechnete Mittelwert samt dem Fehler des Mittelwertes angegeben. Letzterer übertrifft den statistischen Fehler, sodass auf eine Angabe des statistischen Fehlers verzichtet werden kann.
+\clearpage
+% \newgeometry{left=15mm,right=15mm}
+\begin{landscape}
+  \input{ressources/Tabelle_a.tex}
+  % \input{build/Tabelle_a_7_texformat.tex}
+  % \input{build/Tabelle_a_10_texformat.tex}
+  % \input{build/Tabelle_a_16_texformat.tex}
+\end{landscape}
+% \restoregeometry
+\clearpage
+Die Abbildung \ref{fig:Geschwindigkeiten} visualisiert den in den Tabellen gezeigten Zusammenhang zwischen Geschwindigkeit und $\Delta \nu / \cos{\alpha}$ für die drei Prismenwinkel. Für jeden Durchmesser sind die fünf Messwerte aus den fünf eingestellten Pumpleistungen aufgetragen.
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{build/Plot_a_15deg.pdf}
+        \caption[]%
+        {{\small $\Theta = 15°$.}}
+        \label{fig:v1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{build/Plot_a_30deg.pdf}
+        \caption[]%
+        {{\small $\Theta = 30°$.}}
+        \label{fig:v2}
+    \end{subfigure}
+    \vskip\baselineskip
+
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{build/Plot_a_60deg.pdf}
+        \caption[]%
+        {{\small $\Theta = 60°$.}}
+        \label{fig:v3}
+    \end{subfigure}
+    \caption[]
+    {Geschwindigkeiten für verschiedene Innendurchmesser.}
+    \label{fig:Geschwindigkeiten}
+\end{figure*}
+
+\subsection{Strömungsprofil}
+Zur Bestimmung des Strömungsprofils wird zusätzlich die Streuintensität notiert, um eine Aussage über das Intervall der Tiefe zu erhalten, bei dem die Strömung zu sehen ist. Es ist eine erhöhte Streuintensität im Bereich von Grenzschichten zu erwarten, da hier Reflexion stattfindet. Für die Messungen wird ausschließlich $\Theta = 15°$ und der Innendurchmesser $d_i = \SI{10}{\milli\meter}$ gewählt.
+Aus den Messwerten für die Frequenzdifferenz (s. im Anhang Tabelle \ref{table:messdaten_b}) wird wie im vorangegangenen Abschnitt die Geschwindigkeit errechnet. Hierzu ist anzumerken, dass die Messergebnisse einer anderen Gruppe verwendet werden. Die Abbildungen \ref{fig:PlotA1} und \ref{fig:PlotA2} zeigen die Ergebnisse für zwei verschiedene Pumpleistungen. Dabei wird der Übersicht halber auf eine Darstellung der Fehlerbalken verzichtet.
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{build/Plot_b_P45.pdf}
+        \caption[]%
+        {{\small $\frac{P}{P_\text{max}} = 45\si{\percent}$.}}
+        \label{fig:PlotA1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{build/Plot_b_P70.pdf}
+        \caption[]%
+        {{\small $\frac{P}{P_\text{max}} = 70\si{\percent}$.}}
+        \label{fig:PlotA2}
+    \end{subfigure}
+    \caption[]
+    {Errechnete Momentangeschwindigkeit und ein Parabel-Fit für verschiedene Pumpleistungen. Zusätzlich eingetragen sind die gemessenen Streuintensitäten mit der Skalierung auf der rechten Seite der jeweiligen Abbildung. Schwarz punktiert sind die erwarteten Grenzübergänge für Innen- und Außendurchmesser.}
+    \label{fig:profil}
+\end{figure*}
+Mit der Angabe in \cite{skript}, dass die Laufzeit $\Delta t$ in Acryl bzw. der Dopplerflüssigkeit über
+\begin{align}
+  \Delta h_\text{Acryl} / \Delta t &= \SI{2,5}{\milli\meter\per\micro\second}   \;\;\;\;\;\; \text{bzw.} \label{eq:deltah_prisma} \\
+  \Delta h_\text{Dopplerfl} / \Delta t &= \SI{1,5}{\milli\meter\per\micro\second}
+  \label{eq:deltah_dopp}
+\end{align}
+mit der Tiefe $\Delta h$ zusammenhängt, können nun einige Schlüsse gezogen werden. Zunächst ist festzuhalten, dass sich für die Strömung gemäß dem Gesetz von Hagen-Poiseuille -- also in der Theorie -- ein parabelförmiges Geschwindigkeitsprofil einstellen wird. Die Geschwindigkeit ist dabei maximal in der Mitte des Rohres. Von dieser Annahme ausgehend, ist in die Abbildungen ein Fit der Form
+\begin{equation*}
+  v(x) = a(x-x_0)^2 + b
+\end{equation*}
+für ein ausgewähltes Intervall zwischen $\SI{13,5}{\micro\second}$ und $\SI{17,5}{\micro\second}$ Laufzeit eingezeichnet. Der Fit-Parameter $x_0$ beschreibt dann theoretisch den Mittelpunkt des Rohres, weshalb in einem nächsten Schritt ausgehend von dem Zusammenhang \eqref{eq:deltah_dopp} die erwarteten Grenzübergänge für den Innendurchmesser eingetragen werden. Für das Material des Rohres stehen keine Daten zur Verfügung, deshalb werden der Einfachheit halber für die Abschätzung die Eigenschaften von Acryl nach \eqref{eq:deltah_prisma} übernommen. Mit demselben Verfahren und den bekannten Außendurchmessern aus Tabelle \ref{tab:parameter} wird nun der Grenzübergang des Außendurchmessers eingezeichnet.
+Die Abbildungen sind in dieser Weise in drei Bereiche unterteilt. Links wird für kleine Laufzeiten das Prisma vermessen. Zwischen den schwarzen Linien ist das Rohrmaterial bei ca. $\SI{12}{\micro\second}$ und $\SI{19}{\micro\second}$ Laufzeit und dazwischen die eigentliche Strömung anzufinden.
+
+
+% % Examples
+% \begin{equation}
+%   U(t) = a \sin(b t + c) + d
+% \end{equation}
+%
+% \begin{align}
+%   a &= \input{build/a.tex} \\
+%   b &= \input{build/b.tex} \\
+%   c &= \input{build/c.tex} \\
+%   d &= \input{build/d.tex} .
+% \end{align}
+% Die Messdaten und das Ergebnis des Fits sind in Abbildung~\ref{fig:plot} geplottet.
+%
+% %Tabelle mit Messdaten
+% \begin{table}
+%   \centering
+%   \caption{Messdaten.}
+%   \label{tab:data}
+%   \sisetup{parse-numbers=false}
+%   \begin{tabular}{
+% % format 1.3 bedeutet eine Stelle vorm Komma, 3 danach
+%     S[table-format=1.3]
+%     S[table-format=-1.2]
+%     @{${}\pm{}$}
+%     S[table-format=1.2]
+%     @{\hspace*{3em}\hspace*{\tabcolsep}}
+%     S[table-format=1.3]
+%     S[table-format=-1.2]
+%     @{${}\pm{}$}
+%     S[table-format=1.2]
+%   }
+%     \toprule
+%     {$t \:/\: \si{\milli\second}$} & \multicolumn{2}{c}{$U \:/\: \si{\kilo\volt}$\hspace*{3em}} &
+%     {$t \:/\: \si{\milli\second}$} & \multicolumn{2}{c}{$U \:/\: \si{\kilo\volt}$} \\
+%     \midrule
+%     \input{build/table.tex}
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% % Standard Plot
+% \begin{figure}
+%   \centering
+%   \includegraphics{build/plot.pdf}
+%   \caption{Messdaten und Fitergebnis.}
+%   \label{fig:plot}
+% \end{figure}
+%
+% 2x2 Plot
+% \begin{figure*}
+%     \centering
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung1.pdf}
+%         \caption[]%
+%         {{\small Schaltung 1.}}
+%         \label{fig:Schaltung1}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung2.pdf}
+%         \caption[]%
+%         {{\small Schaltung 2.}}
+%         \label{fig:Schaltung2}
+%     \end{subfigure}
+%     \vskip\baselineskip
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung4.pdf}    % Zahlen vertauscht ... -.-
+%         \caption[]%
+%         {{\small Schaltung 3.}}
+%         \label{fig:Schaltung3}
+%     \end{subfigure}
+%     \quad
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung3.pdf}
+%         \caption[]%
+%         {{\small Schaltung 4.}}
+%         \label{fig:Schaltung4}
+%     \end{subfigure}
+%     \caption[]
+%     {Ersatzschaltbilder der verschiedenen Teilaufgaben.}
+%     \label{fig:Schaltungen}
+% \end{figure*}
