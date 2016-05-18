@@ -1,0 +1,128 @@
+\section{Diskussion}
+\label{sec:Diskussion}
+  Die Mikroskopdaten sind entsprechend der Messmethode ungenau, aber eine notwendige Orientierung zum finden der Fitparameter.
+  Der Rahmen auf dem Bildschirm war recht dick und ließ keine genaue Messung zu. Zudem ist der digitale Zoom des
+  Mikroskops nur sehr grob einstellbar.
+
+  Das Fitten der Daten gestaltete sich äußerst aufwendig; der zu fittende Sinus Cardinalis stellt ein großes Problem dar,
+	da die zu minimierende Funktion der Summe der Abweichungsquadrate stark oszilliert und auf kleinen Bereichen viele
+	lokale Minima besitzt, was eine Verwendung von Gradient-orientierten Fittern beinahe ausschließt, da diese hier
+	nicht robust genug sind.
+	Die Autoren benutzten schlussendlich eine modifizierte Version des \emph{Simplex}-Algorithmus in Tandem mit
+	\emph{Mathematicas NonlinearModelFit}, die in der Kürze der Zeit ein noch annehmbares Ergebnis lieferten. Dabei wurde
+	insbesondere darauf geachtet, die Frequenz (des Sinus Cardinalis) der Messdaten möglichst gut zu fitten, da diese für die Spaltbreite bestimmend
+	ist.
+
+	Die Messdaten zu den ersten drei Spalten sind gut genug, um die Spaltbreite zu bestimmen. Sie haben etwa 25~\% Abweichung
+	zu den mikroskopierten Werten. Es gibt keine Anhaltspunkte, welches der beiden Messverfahren genauer ist.
+
+	Die Messdaten des Doppelspalts weichen zu stark von dem nach der Theorie erwarteten Muster ab. Der hindurchgelegte Fit
+	weicht zu stark ab, um aussagekräftig zu sein. Die Messdaten haben mehr den Charakter zwei weit voneinander entfernter
+	Einzelspalte. Schlussendlich konnte nicht erklärt werden, warum der zu erwartende Peak in der Mitte des Diagramms ausbleibt.
+
+
+\subsection{Messdaten} % (fold)
+\label{sub:messdaten}
+
+\begin{table}
+\footnotesize
+	\centering
+  \caption{Messdaten zu Spalt 1.}
+  \label{tab:fit}
+  \begin{adjustbox}{center}
+		\tabcolsep=0.11cm
+  \begin{tabular}{
+      S
+      S
+      S}
+   \toprule
+   \multicolumn{1}{c}{Winkel in mrad} &
+   \multicolumn{1}{c}{Strom in \si{\mu\ampere}} &
+   \multicolumn{1}{c}{Strom $\sigma$ in \si{\mu\ampere}} \\
+   \midrule
+      \primitiveinput{../table/single_slit1.tex}
+   \bottomrule
+  \end{tabular}
+  \end{adjustbox}
+\end{table}
+
+\begin{table}
+\footnotesize
+	\centering
+  \caption{Messdaten zu Spalt 2.}
+  \label{tab:fit}
+  \begin{adjustbox}{center}
+		\tabcolsep=0.11cm
+  \begin{tabular}{
+      S
+      S
+      S}
+   \toprule
+   \multicolumn{1}{c}{Winkel in mrad} &
+   \multicolumn{1}{c}{Strom in \si{\mu\ampere}} &
+   \multicolumn{1}{c}{Strom $\sigma$ in \si{\mu\ampere}} \\
+   \midrule
+      \primitiveinput{../table/single_slit2.tex}
+   \bottomrule
+  \end{tabular}
+  \end{adjustbox}
+\end{table}
+
+\begin{table}
+\footnotesize
+	\centering
+  \caption{Messdaten zu Spalt 3.}
+  \label{tab:fit}
+  \begin{adjustbox}{center}
+		\tabcolsep=0.11cm
+  \begin{tabular}{
+      S
+      S
+      S}
+   \toprule
+   \multicolumn{1}{c}{Winkel in mrad} &
+   \multicolumn{1}{c}{Strom in \si{\mu\ampere}} &
+   \multicolumn{1}{c}{Strom $\sigma$ in \si{\mu\ampere}} \\
+   \midrule
+      \primitiveinput{../table/single_slit3.tex}
+   \bottomrule
+  \end{tabular}
+  \end{adjustbox}
+\end{table}
+
+\begin{table}
+\footnotesize
+	\centering
+  \caption{Messdaten zu Spalt 4 (Doppelspalt).}
+  \label{tab:fit}
+  \begin{adjustbox}{center}
+		\tabcolsep=0.11cm
+  \begin{tabular}{
+      S
+      S
+      S}
+   \toprule
+   \multicolumn{1}{c}{Winkel in mrad} &
+   \multicolumn{1}{c}{Strom in \si{\mu\ampere}} &
+   \multicolumn{1}{c}{Strom $\sigma$ in \si{\mu\ampere}} \\
+   \midrule
+      \primitiveinput{../table/single_slit4.tex}
+   \bottomrule
+  \end{tabular}
+  \end{adjustbox}
+\end{table}
+
+
+% subsection messdaten (end)
+
+\newpage
+\section{Literaturangabe}
+\label{sec:Literatur}
+
+Bilder und Daten aus dem Skript zu \emph{Beugung am Spalt}, Versuch 406, TU Dortmund, abrufbar auf:\\
+\url{http://129.217.224.2/HOMEPrismadispersionPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/V406.pdf}\\(Stand 30.04.16)\par
+
+Bild zu \emph{Intensitätsverteilung am Doppelspalt}, By Klaus-Dieter Keller - Own work, created with SciDAVisThis vector image was created with Inkscape., CC BY 3.0,
+abrufbar auf: \\
+\url{https://commons.wikimedia.org/w/index.php?curid=24952635 }\\ (Stand 30.04.16)
+

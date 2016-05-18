@@ -1,0 +1,62 @@
+\input{preamble.tex}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+
+~\\[1cm]
+
+
+\textsc{\Large Praktikumsprotokoll des 10.5.2016}\\
+
+% Title
+\huge{ \bfseries Glühelektrischer Effekt}\\[1em]
+
+
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+Thea \textsc{Schneider}\\
+thea.schneider@udo.edu
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+Max \textsc{Pernklau}\\
+max.pernklau@udo.edu
+\end{flushright}
+\end{minipage}
+%\textsc{\large \newline Durchführung: 15.12.2015} \\
+
+\vfill
+
+{\large \today}
+
+\end{center}
+\end{titlepage}
+
+
+\thispagestyle{empty}
+%\tableofcontents
+%\newpage
+
+\input{content/abstract.tex}
+
+% this code supresses the \pagebreak that is inserted after each section so that abstract and theory can be on the same page
+\begingroup
+\renewcommand{\clearpage}{}
+\section{Theorie}
+\label{sec:Theorie}
+\endgroup
+\input{content/theorie.tex}
+
+\input{content/fehlerrechnung.tex}
+\input{content/aufbau.tex}
+\input{content/auswertung.tex}
+\input{content/fehlerdiskussion.tex}
+
+%\printbibliography
+
+\end{document}

@@ -1,0 +1,65 @@
+
+\subsection{Überblick}
+\label{sub:der_millikanversuch}
+  Beim Zerstäuben von Öl werden die entstehenden Tröpfchen schwach geladen. Bringt man diese in einen geladenen Kondensator ein, erfahren sie durch das elektrische Feld die Kraft
+  \begin{align*}
+    F_E = q E \;.
+  \end{align*}
+  Zudem wirkt eine Gravitationskraft von
+  \begin{align*}
+    F_G = m g
+  \end{align*}
+  und der Luftwiderstand $F_R$. Da die Tröpfchen ausreichend klein sind, genügt eine Betrachtung über die Stoke'schen Reibung
+  \begin{align*}
+    F_R = 6 \pi \eta r v \;,
+  \end{align*}
+  wobei $r$ der ``Radius'' des Tröpfchens (die Oberflächenspannung dominiert bei den hier vorliegenden, kleinen Maßstäben, die Tröpchen sind annähernd kugelförmig\footnote{sofern in dieser Größenordnung noch von ``rund'' gesprochen werden kann; der Tropfen besteht nur aus einigen hundert bis tausend Atomen.}) und $\eta$ die Viskosität der Luft ist.
+
+  Die Öltröpfchen erreichen nach kurzer Zeit eine konstante Geschwindigkeit; es muss also ein Kräftegleichgewicht bestehen:
+  \begin{align*}
+    |F_E+F_G| = F_R
+  \end{align*}
+  Durch das Auflösen nach der Ladung erhält man kein kontinuierliches Ladungsspektrum, wie man klassisch erwarten würde. Stattdessen gibt es nur diskrete Ladungen, die ein Tröpfchen besitzen kann. Es liegt nahe, dass das kleinste gemeinsame Vielfache der möglichen Ladungen die Elementarladung sein muss.
+
+\subsection{Details}
+\label{sub:details}
+  Die Tröpfchen sind zu klein, um direkt beobachtet zu werden\footnote{Wellenlängen des sichtbaren Lichts sind um eine Größenordnung zu groß}, weswegen ein Dunkelfeldmikroskop zum Einsatz kommt, mit dem die Beugungsbilder der Tröpfchen beobachtet werden können.
+
+  Entsprechend kann die Masse des Tropfens nicht optisch über dessen Durchmesser bestimmt werden; sie wird deswegen über die Stokes'sche Reibung erschlossen: Für die Kräftegleichung eines Tropfens außerhalb des elektrischen Feldes muss
+
+  \begin{align*}
+    |F_G| = F_R
+  \end{align*}
+
+  gelten. Bei bekannter Geschwindigkeit lässt sich die Gleichung mithilfe der Dichtebeziehung
+  \begin{align}\label{equ:dichte}
+    m = \rho \frac{4 \pi}{3}r^3
+  \end{align}
+  nach der Masse auflösen. Analog kann der Radius bestimmt werden.
+
+  Die dafür benötigte Endgeschwindigkeit ohne elektrisches Feld ist schwierig zu messen, da sie recht klein sein kann. Deswegen wird hier die Zweifeldmethode angewandt, bei der die Geschwindigkeit des Teilchens bei beiden möglichen Polungen des Kondensators gemessen wird:
+  \begin{align*}
+    F_G+F_E &= F_R(v_{\mathrm{ab}})\\
+    F_G-F_E &= F_R(v_{\mathrm{auf}})\\
+    F_G &= F_R(v_0)
+  \end{align*}
+
+  \begin{align}\label{equ:polung}
+    \iff 2 v_0 &= v_{\mathrm{ab}} - v_{\mathrm{auf}} \;.
+  \end{align}
+
+  Schließlich ist zu beachten, dass die Viskosität der Luft von der Teilchengröße abhängt. Da die betrachteten Tropfen kleiner als die freie Weglänge in Luft sind wird die \emph{Cunningham}-Korrektur angewandt:
+  \begin{align}\label{equ:cunning}
+     \eta = \eta_{\text{klassisch}} \frac{1}{1+B/(pr)}
+  \end{align}
+   Dabei ist $B$ eine experimentell bestimmte Konstante, $r$ der Tröpfchenradius und $p$ der Luftdruck.
+
+   Der Auftrieb der Tropfen in Luft muss indes nicht berücksichtigt werden, da $\rho_{\text{Öl}} \gg \rho_{\text{Luft}}$ ist.
+
+   \par
+   \par
+
+   Unter Berücksichtigung der oben genannten Zusammenhänge ergibt sich folgendes Ergebnis für die Ladung eines Tropfens:
+   \begin{align}\label{equ:ladung}
+     q = 3 \pi \eta \frac{v_{\mathrm{ab}}+v_{\mathrm{auf}}}{E} \sqrt{\frac{9 \eta (v_{\mathrm{ab}}-v_{\mathrm{auf}})}{4 g \rho}} \;.
+   \end{align}
