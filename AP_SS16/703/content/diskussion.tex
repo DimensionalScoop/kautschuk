@@ -1,0 +1,28 @@
+\section{Diskussion}
+\label{sec:Diskussion}
+
+Die Charakteristik des Geiger-Müller-Zählrohrs wird durch die zwei wesentlichen Größen Plateausteigung $s$ und Plateaulänge $L$ beschrieben.
+\begin{align*}
+  s &= \input{build/plateausteigung.tex}(100\si{\volt})^{-1} \\
+  L &= \input{build/plateaulaenge.tex}
+\end{align*}
+Zum Vergleich mit handelsüblichen Zählrohren wird hier das Produkt aus \cite{phywe} zu Rate gezogen. Hier sind die entsprechenden Größen mit
+\begin{align*}
+  s &= \SI{4}{\percent}(100\si{\volt})^{-1} \\
+  L &= \SI{200}{V}
+\end{align*}
+angegeben. Im Vergleich zu diesem Produkt erweist sich das im Versuch verwendete Zählrohr also gemäß den Ausführungen in Kapitel \ref{sec:charakteristik} in beiden relevanten Größen als qualitativ besser.
+
+Die Abweichungen der Messwerte in Abbildung \ref{fig:plot} lassen sich im Wesentlichen auf das probabilistische Verhalten eines radioaktiven Zerfalls zurückführen. Mit Bezug auf Abbildung \ref{fig:Char} lassen sich für die aufgenommenen Messwerte die Anfänge des Entladungsbereichs im rechten Bereich der Abbildung \ref{fig:plot} erkennen. Ebenso sind die Ausläufer des Bereichs begrenzter Propotionalität zu sehen im linken Teil der Abbildung. Es ist aus diesem Grunde für die Berechnung der Plateausteigung und -länge nur der blau markierte, verhältnismäßig ebene Bereich ausgewählt worden. Ferner ist im Versuch aufgefallen, dass bei Spannungen unterhalb von $\SI{320}{\volt}$ keine Strahlungsimpulse detektiert werden. Dies ist vermutlich auf eine begrenzte Empfindlichkeit des Zählrohrs zurückzuführen. Das verwendete Zählrohr ist also nicht für den Einsatz im Propotionalbereich geeignet, sodass keine Aussage über die Energie der eintreffenden Strahlung getroffen werden kann. Mit Blick auf Abbildung \ref{fig:plot2} lässt sich feststellen, dass der erwartete proportionale Zusammenhang zwischen Strom und Spannung deutlich zu erkennen ist.
+
+In dem zweiten Teil des Versuchs ist die Erholungszeit am Oszilloskop ermittelt worden. In Ermangelung von Vergleichswerten lässt sich an dieser Stelle keine qualitative Aussage über den gefundenen Wert
+\begin{align*}
+  T_E = \input{build/Erholungszeit.tex}
+\end{align*}
+treffen. Die Totzeit hingegen ist auf zwei verschiedene Methoden ermittelt worden, sodass sich ein relativer Unterschied $\epsilon$ gemäß den Ausführungen in Kapitel \ref{sec:Auswertung} angeben lässt.
+\begin{align*}
+  T_\text{Oszi}   &= \input{build/Totzeit_c.tex} \\
+  T_\text{2-Quell} &= \input{build/Totzeit_d.tex} \\
+  \epsilon &= \input{build/RelFehler.tex}
+\end{align*}
+Es ist zwar eine merkliche Abweichung zwischen den beiden Methoden zu sehen, jedoch sind auch die jeweils angenommenen Fehler groß, sodass aufgrund der Überlappung der Messwerte samt Fehlerbereich die Verfahren sich gegenseitig bestätigen können.

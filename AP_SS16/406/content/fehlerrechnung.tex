@@ -1,0 +1,21 @@
+\section{Fehlerrechnung}
+Dieses Kapitel listet kurz und bündig die benötigten und aus den Methoden der Statistik bekannten Formeln für die Fehlerrechnung auf.
+Die Schätzung der Standardabweichung ist
+\begin{equation}
+  \label{eq:std}
+  \Delta X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2}     \; .
+\end{equation}
+Der Mittelwert ist
+\begin{equation}
+  \overline{X} = \frac{1}{n} \sum_{i=1}^nX_i
+\end{equation}
+Der Fehler des Mittelwertes ist
+\begin{equation}
+  \label{eq:std_mean}
+  \Delta \overline{X} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n(X_i-\overline{X})^2}   \; .
+\end{equation}
+Für fehlerbehaftete Größen, die auch in folgenden Formeln verwendet werden, muss die Fehlerfortpflanzung nach Gauß berücksichtigt werden.
+\begin{equation}
+  \label{eq:GFFP}
+  \Delta f = \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial X_i}\right)^2 \cdot (\Delta X_i)^2}
+\end{equation}

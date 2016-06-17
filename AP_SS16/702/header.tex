@@ -1,0 +1,218 @@
+\documentclass[
+  parskip=half,           % halbzeiliger Zeileneinzug nach Absatz
+  bibliography=totoc,     % Literatur im Inhaltsverzeichnis
+  captions=tableheading,  % Tabellenüberschriften
+  titlepage=firstiscover, % Titelseite ist Deckblatt
+]{scrartcl}
+
+\usepackage{geometry}
+\geometry{a4paper,left=25mm,right=25mm, top=3cm, bottom=3cm}
+
+% Paket float verbessern
+\usepackage{scrhack}
+
+% Warnung, falls nochmal kompiliert werden muss
+\usepackage[aux]{rerunfilecheck}
+
+% deutsche Spracheinstellungen
+\usepackage{polyglossia}
+\setmainlanguage{german}
+
+% unverzichtbare Mathe-Befehle
+\usepackage{amsmath}
+% viele Mathe-Symbole
+\usepackage{amssymb}
+% von Ismo für Gleichungen ..
+\usepackage{IEEEtrantools}
+% Erweiterungen für amsmath
+\usepackage{mathtools}
+
+% Fonteinstellungen
+\usepackage{fontspec}
+% Latin Modern Fonts werden automatisch geladen
+
+\usepackage[
+  math-style=ISO,    % ┐
+  bold-style=ISO,    % │
+  sans-style=italic, % │ ISO-Standard folgen
+  nabla=upright,     % │
+  partial=upright,   % ┘
+  warnings-off={           % ┐
+    mathtools-colon,       % │ unnötige Warnungen ausschalten
+    mathtools-overbracket, % │
+  },                       % ┘
+]{unicode-math}
+
+% traditionelle Fonts für Mathematik
+\setmathfont{Latin Modern Math}
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+% Zahlen und Einheiten
+\usepackage[
+  locale=DE,                 % deutsche Einstellungen
+  separate-uncertainty=true, % immer Fehler mit \pm
+  per-mode=reciprocal,       % ^-1 für inverse Einheiten
+  % alternativ:
+  % per-mode=reciprocal, % m s^{-1}
+  % decimal-marker=., % . statt , f�r Dezimalzahlen
+]{siunitx}
+
+% chemische Formeln
+\usepackage[
+  version=4,
+  math-greek=default, % ┐ mit unicode-math zusammenarbeiten
+  text-greek=default, % ┘
+]{mhchem}
+
+% tikzpicture ("Zeichenprogramm")
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{positioning}
+\tikzset{
+  Pfeil/.style={thick,shorten >=#1,shorten <=#1,->,>=latex}, % für Peile
+  UPfeil/.style={blue,Pfeil=#1,font={\sffamily\itshape}},% für Spannungspfeile
+  IPfeil/.style={red,Pfeil=#1,font={\ttfamily\itshape}} % für Strompfeile
+}
+%Volt- und Amperemeter festlegen:
+\tikzset{circuit declare symbol = Us}
+\tikzset{set Us graphic ={draw,generic circle IEC, minimum size=5mm,info=center:$U_s$}}
+
+\tikzset{circuit declare symbol = voltmeter}
+\tikzset{set voltmeter graphic ={draw,generic circle IEC, minimum size=5mm,info=center:V}}
+
+% richtige Anführungszeichen
+\usepackage[autostyle]{csquotes}
+
+% schöne Brüche im Text
+\usepackage{xfrac}
+
+\usepackage{blindtext}    % \blindtext zum Testen von Texten.
+
+% Standardplatzierung für Floats einstellen
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+% Floats innerhalb einer Section halten
+\usepackage[
+  section, % Floats innerhalb der Section halten
+  below,   % unterhalb der Section aber auf der selben Seite ist ok
+]{placeins}
+
+% Seite drehen für breite Tabellen
+\usepackage{pdflscape}
+
+% mehrere Seiten einer einzelnen pdf, zB
+% \includepdf[pages={1-2}]{Bilder/Messdaten.pdf}
+\usepackage{pdfpages}
+
+% Captions schöner machen.
+\usepackage[
+  labelfont=bf,        % Tabelle x: Abbildung y: ist jetzt fett
+  font=small,          % Schrift etwas kleiner als Dokument
+  width=0.9\textwidth, % maximale Breite einer Caption schmaler
+  %indention=1cm        % Einrückung nach der ersten Zeile
+]{caption}
+% subfigure, subtable, subref
+\usepackage{subcaption}
+
+% mit Buchstabend gelistete items: \begin{enumerate}[label={\alph*)}]
+\usepackage{enumitem}
+
+% Grafiken können eingebunden werden
+\usepackage{graphicx}
+% größere Variation von Dateinamen möglich (Probleme mit Leerzeichen behoben)
+\usepackage{grffile}
+
+% schöne Tabellen
+\usepackage{booktabs}
+\sisetup{table-format=1.2}
+%\begin{tabular}{S[table-format=3.0] S S S S[table-format=3.2]}
+%table-format : 3 stellen vor, 0 stellen nach dem Komma
+% S steht f�r siunix, dh. wir verwenden solche Zahlen
+% \multicolumn{2}{c}{Spalte 1}
+% wie in excel Spalten zusammenf�gen
+% Einheiten: {$\lambda \:/\: \si{\nano\meter}$}
+
+% Uncertainties:
+%\begin{tabular}{
+% S[table-format=3.1]
+% @{${}\pm{}$}
+% S[table-format=2.1]
+% }
+% \toprule
+% \multicolumn{2}{c}{$x \:/\: \si{\ohm}$} \\
+% \midrule
+% 632.4 & 5.7 \\
+
+% Verbesserungen am Schriftbild
+\usepackage{microtype}
+
+% Literaturverzeichnis
+\usepackage[
+  backend=biber,
+]{biblatex}
+% Quellendatenbank
+\addbibresource{Quellen.bib}
+\addbibresource{programme.bib}
+
+% Hyperlinks im Dokument
+\usepackage[
+  unicode,        % Unicode in PDF-Attributen erlauben
+  pdfusetitle,    % Titel, Autoren und Datum als PDF-Attribute
+  pdfcreator={},  % ┐ PDF-Attribute säubern
+  pdfproducer={}, % ┘
+  linkcolor=blue, % einfache interne Verkn?pfungen
+  citecolor=blue, % Verweise auf Literaturverzeichniseintr?ge im Text
+]{hyperref}
+% erweiterte Bookmarks im PDF
+\usepackage{bookmark}
+
+% Trennung von Wörtern mit Strichen
+\usepackage[shortcuts]{extdash}
+
+\author{
+  Marius Hötting%
+  \texorpdfstring{
+    \\
+    \href{mailto:Marius.Hoetting@udo.edu}{Marius.Hoetting@udo.edu}
+  }{}%
+  \texorpdfstring{\and}{, }
+  Matthias Jaeger%
+  \texorpdfstring{
+    \\
+    \href{mailto:Matthias.Jaeger@udo.edu}{Matthias.Jaeger@udo.edu}
+  }{}%
+}
+\publishers{TU Dortmund – Fakultät Physik}
+
+
+% TYPOGRAPHIE:
+
+% Nutze z.\,B. um Zeilenumbruch zu verhindern.
+% Gedankenstriche mit --  (statt -)
+% \\[2\baselineskip] erstellt einen vspace mit 2 Baselines, also 2 Zeilen
+
+
+% \renewcommand{\baselinestretch}{1.3}										%Zeilenabstand
+
+
+% zu breite Tabellen/Figures:
+%\OverfullCenter{
+%  \begin{figure}
+%   ...
+%  \end{figure}
+%}
+\NewDocumentCommand \OverfullCenter {+m} {
+  \noindent\makebox[\linewidth]{#1} }
+
+
+
+% Klammern werden nach außen hin leicht größer gesetzt.
+\setlength{\delimitershortfall}{-1sp}
+
+
+% Zusammenfassung neue Dinge: \Re(x)  \Im(x)  \v{x} \dif{x} \Dif{x}
+% des weiteren werden in Mathebefehle.tex weitere Sachen definiert
+\input{mathebefehle.tex}

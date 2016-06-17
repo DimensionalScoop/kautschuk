@@ -1,0 +1,14 @@
+- Woher kommt der Fehler in den Messdaten?
+- Macht ein errorbar plot sinn für indium?
+Check - nicht jede Gleichung mit einer Nummer versehen, nur die, die wichtig sind bzw. auf die du dich nochmal referenzierst.
+Matthias - Direkt am Anfang der Verweis auf Gleichung (6) stimmt nicht. Du hast ja einfach einen Konstanten Wert pro Zeitpunkt abgezogen, das hat nichts zu tun mit (6) und sollte deshalb eigens beschrieben sein
+Check - Unsere Standardfloskel mit den packages sollte zu Beginn des Kapitels Auswertung stehen.
+Check- Wichtig: was ist nun mit dem offset "b" -> hieraus kann man doch N_0 ermitteln !
+Check- Gleichung (15) brauchst du nicht, referenzier dich auf (3)
+Check- Die Tabelle für Silber wie besprochen splitten und direkt hinter den Text statt der Abbildung. Das verwirrt sonst, da die Abbilgungsreferenzierung Check erst 2 Seiten später kommt.
+Check- "Aus der Regressionsgerade ergeben sich die Werte"  <- welche Regressionsgerade? du meinst natürlich die für das kurzlebige Silber
+Check- "wird die Halbwertszeit 𝑇110 für 108Ag nach..." 110Ag statt 108
+Check- Wichtig: was passiert beim 2. Fit des Siblers? Hier fehlt mir, dass der erste Fit abgezogen werden muss (hast du das überhaupt getan?) -> hab ich auch Check beschrieben in der Theorie
+Check- Zur Diskussion: ich denke eine andere Wahl von t* hätte da auch nicht bessere Ergebnisse geliefert. Du solltest hier wenn überhaupt von möglichen CheckFehlerursachen sprechen. Das ist es jedenfalls nicht alleine. Zur Not sag, dass das unklar bleibt. Besser als was falsches auszusagen.
+Check- Zur Diskussion: Mir fehlt irgendwie eine Interpretation der Abbildungen. Das wird eigentlich immer erwartet. Du hast die Plots zwar "hingeklatscht" Check aber eben nichts dazu gesagt.
+Check

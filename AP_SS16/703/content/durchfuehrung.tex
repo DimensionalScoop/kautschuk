@@ -1,0 +1,42 @@
+\section{Durchführung}
+\label{sec:Durchführung}
+Als Strahlungsquelle wird im folgenden Versuch ein Thallium-Isotop verwendet.
+
+\subsection{Aufnahme der Charakteristik des Zählrohrs}
+Der $\beta$-Strahler wird vor dem Geiger-Müller-Zählrohr positioniert, um die Charakteristik des Strahlers aufzunehmen. Dazu wird die Anzahl der eingehenden Teilchen in Abhängigkeit der angelegten Spannung $U$ gemessen. Im Bereich von $\SI{320}{\volt}$-$\SI{700}{\volt}$ wird im Abstand von $\SI{10}{\volt}$ die dazugehörige Teilchenzahl $\Delta N$ notiert.
+Bei der Durchführung ist darauf zu achten, die Spannung von $\SI{720}{\volt}$ nicht zu überschreiten, da sonst durch Dauerentladungen das Zählrohr zerstört wird.
+
+\subsection{Sichtbarmachung von Nachentladungen}
+In diesem Teil soll die Nachentladung rein qualitativ gezeigt werden. Dafür wird der Abstand des $\beta$-Strahlers zum Zählrohr vergrößert, bis auf dem Oszilloskop kein weiterer Impuls des Strahlers mehr sichtbar ist. Das entstehende Bild soll einmal bei einer Spannung von $\SI{350}{\volt}$ untersucht werden, da in diesem Bereich Nachentladungen sehr unwahrscheinlich sind und einmal bei $\SI{700}{\volt}$.
+
+\subsection{Oszillographische Messung der Totzeit}
+Es wird die Strahlungsintensität erhöht indem der $\beta$-Strahler nah am Zählrohr positioniert wird. Auf dem Oszilloskop wird die Totzeit $T$ und die Erholungszeit $T_\textrm{E}$ grob abgeschätzt.
+
+
+\subsection{ Bestimmung der Totzeit mit der Zwei-Quellen-Methode}
+\label{sec:Totzeit}
+Zuerst wird die erste Strahlungsquelle vor dem Zählrohr platziert und die Zählrate $N_1$ aufgenommen. Dann wird ein zweiter Strahler vor dem Zählrohr platziert und die Zählrate $N_\textrm{1+2}$ aufgenommen. Zuletzt wird die erste Quelle wieder entnommen um die Zählrate $N_2$ auf zu nehmen.\\
+Aufgrund der Totzeit gilt
+\begin{align}
+  N_\textrm{1+2} < N_\textrm{1} + N_\textrm{2}\;.
+  \label{eq:N1und2}
+\end{align}
+Auf Grundlage von Gleichung $\ref{eq:N}$ wird die Totzeit $T$ bestimmt durch
+\begin{align}
+  T \approx \frac{N_\textrm{1} + N_\textrm{2} - N_\textrm{1+2}}{2N_\textrm{1} N_\textrm{2}} \;.
+  \label{eq:T}
+\end{align}
+
+\subsection{Messung der pro Teilchen vom Zählrohr freigesetzten Ladungsmenge }
+Mit einem geeigneten Amperemeter wird der mittlere Zählrohrstrom
+\begin{align}
+  \bar{I} \coloneqq \frac{1}{\tau} \int_0^\tau \frac{U(t)}{R} dt
+  \label{eq:Strom1}
+\end{align}
+wobei $\tau >> T$, gemessen.
+Da die Anzahl der Teilchen $Z$ und das Zeitintervall $\Delta t$, in dem die Teilchenzahl bestimmt wird, bekannt ist, ergibt sich mit der Definition des Stroms
+\begin{align}
+  \bar{I} = \frac{\Delta Q}{\Delta t} Z\;.
+  \label{eq:Strom2}
+\end{align}
+Auf Grund der Abhängigkeit der Ladungsmenge von der Zählrohrspannung, wird $\Delta Q$ während der Aufnahme der Charakteristik des Zählrohres notiert.

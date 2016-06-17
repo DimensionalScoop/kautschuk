@@ -1,0 +1,24 @@
+\section{Diskussion}
+\label{sec:Diskussion}
+Der folgende Vergleich der errechneten Halbwertszeit von Indium mit dem Literaturwert \cite{Werte}  zeigt eine Abweichung zum Literaturwert von \SI{3.13}{\percent}.
+\begin{align}
+  T &= \input{build/Halbwertszeit_Indium_h.tex}\\
+  T_\textrm{Lit.} &= \SI{54.3}{\minute}
+\end{align}
+Bei dem  weiteren Vergleich der Halbwertszeiten von $\ce{^{108}_{}Ag}$ und $\ce{^{110}_{}Ag}$ in Tabelle $\ref{tab:Vergleich}$ fällt auf, dass der Literaturwert \cite{Werte}  der beiden Isotope  im Fehlerbereich der ermitttelten Halbwertszeit liegt.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lSS}
+    \toprule
+    & {$T_\textrm{Lit.} \:/\: \si{\second}$} & {$T \:/\: \si{\second}$} \\
+    \midrule
+    $\ce{^{108}_{}Ag}$     & 142.9  & $\input{build/Halbwertszeit_Silber_108_ohne.tex}$ \\
+    $\ce{^{110}_{}Ag}$     &  24.6  & $\input{build/Halbwertszeit_Silber_110_ohne.tex}$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Vergleich der Halbwertszeiten von  $\ce{^{108}_{}Ag}$ und   $\ce{^{110}_{}Ag}$ .}
+  \label{tab:Vergleich}
+\end{table}
+% Die Abweichung lässt sich auf die Wahl des $t^*$ zurückführen. Da die Wahl von $t^*$ auf Grund der Abbildung $\ref{fig:Silber_plot}$  und durch grobe Abschätzung getroffen wurde, ist dies die größte Fehlerquelle.
+Wie in Tabelle $\ref{table:Silber}$ zu sehen, nehmen die Detektionen $N$ bei Silber im laufe der Zeit nicht durchgehend kontinuierlich ab. Immer wieder treten Abweichungen sowohl nach oben als auch nach unten auf. Dieses ist vor allem am Ende der Messung zu beobachten, weshalb die Messwerte in Abbildung $\ref{fig:Silber108}$, die gerade diesen Intervall graphisch darstellt, teilweise große Abweichungen zur Regressionsgeraden aufweisen.\\
+Da die Werte für $\ce{^{110}_{}Ag}$ und für Indium wenige bis keine Ausreißer enthalten, liegen diese in Abbildung $\ref{fig:Indium_plot}$ und $\ref{fig:Silber110}$ sehr nah an der jeweiligen Regressionsgeraden.

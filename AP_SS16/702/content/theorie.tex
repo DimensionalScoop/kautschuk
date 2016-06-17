@@ -1,0 +1,111 @@
+\section{Zielsetzung}
+In diesem Versuch sollen die Halbwertszeiten verschiedener mit $\alpha$-Strahlung aktivierter Elemente bestimmt werden.
+
+\section{Theorie}
+\label{sec:Theorie}
+    Isotope werden instabil, wenn die Zahl der Neutronen $m - z$ zu groß oder zu klein wird. Hierbei sind $m$ die Massenzahl und $z$ die Zahl der Protonen des Kerns.
+    Die Wahrscheinlichkeit, dass dieser Kern in einen anderen zerfällt, variiert zwischen verschiedenen Isotopen stark. Die charakterisierende Größe ist die Halbwertszeit $T$.
+    Diese ist so definiert, dass die Wahrscheinlichkeit, dass ein Kern innerhalb der Zeit $T$ zerfällt gerade $\SI{50}{\percent}$ beträgt.
+
+    Eine Möglichkeit, instabile Kerne zu erzeugen, besteht darin, stabile Isotope mit Neutronen zu beschießen. Dies ist auch in einfachen Laboren möglich, denn die für das Eindringen des Neutrons nötige Energie ist sehr gering im Vergleich zu der Energie, die beispielsweise ein geladenes Teilchen dafür benötigt. Das Neutron wird von dem Kern absorbiert und es entsteht ein sogenannter Zwischenkern. Dessen Energie ist um den Beitrag der kinetischen Energie des Neutrons sowie dessen Bindungsenergie höher als die des ursprünglichen Kerns. Der Zwischenkern wechselt nach einer kurzen Zeit von etwa $\SI{e-16}{\second}$ unter Aussendung der Energie des Neutrons in Form eines $\gamma$-Quants in seinen Grundzustand.
+    \begin{equation}
+      \ce{^{$m$}_{$z$} A + ^1_0 n -> ^{$m + 1$}_{$z$} A^* -> ^{$m + 1$}_{$z$} A + \gamma}
+    \end{equation}%
+    In vielen Fällen ist dieser neu entstandene Kern instabil und zerfällt nach einer längeren Zeit unter Aussendung eines Elektrons und eines Antineutrinos in einen stabilen Kern.
+    \begin{equation}
+      \ce{^{$m + 1$}_{$z$} A -> ^{$m + 1$}_{$z + 1$} B + \beta^- + \bar{\nu}_{\text{e}} + E_{\text{kin}}}
+      \label{eq:betazerfall}
+    \end{equation}%
+    Dies entspricht dem sogenannten $\beta$-Zerfall. Da die Massenbilanz zeigt, dass die Teilchen auf der linken Seite eine größere Masse haben gegenüber denen der rechten Seite, entsteht gemäß der speziellen Relativitätstheorie kinetische Energie.
+    Diese wird zufällig zwischen dem Elektron und dem Antineutrino aufgeteilt.
+
+    Für experimentelle Untersuchungen spielt der sogenannte Wirkungsquerschnitt $\sigma$ eine wichtige Rolle. Er stellt vereinfacht gesprochen ein Maß für die Ausbeute des Neutroneneinfangs dar. Von besonderem Interesse ist die Erkenntnis, dass sich im Bereich niedriger kinetischer Energien der Neutronen der Wirkungsquerschnitt reziprok zur Geschwindigkeit der Neutronen verhält. Dies ist intuitiv klar, denn die Neutronen verweilen in dieser Weise für einen längeren Zeitraum in der Einwirkungssphäre des Kerns. Aus diesem Grunde werden die Neutronen im Experiment gebremst, bevor sie auf die zu aktivierende Probe treffen, indem sie Stöße mit einer Paraffin-beschichteten Wand erleiden. Die Wasserstoffatome des Paraffins wirken dabei für die Neutronen besonders abbremsend, da ihre Masse von allen Elementen am nächsten an der des Neutrons liegt. Nach vielen Stößen werden die Neutronen schließlich einen Energiewert im Bereich der mittleren kinetischen Energie der Moleküle in ihrer Umgebung besitzen. Letztere bestimmt wiederum die Temperatur, weshalb Neutronen in einem solchen Zustand als thermische Neutronen bezeichnet werden.
+
+    Für die hier untersuchten Isotope gelten nach \cite{skript} die folgenden Zerfälle.
+    \begin{eqns}[lCcClClCl]
+      \ce{^{115}_{49} In} & + & \ce{n} & \ce{->} & \ce{^{116}_{49} In} & \ce{->} & \ce{^{116}_{50} Sn} & + & \ce{\beta^- + \bar{\nu}_{\text{e}}} \\
+      \ce{^{107}_{47} Ag} & + & \ce{n} & \ce{->} & \ce{^{108}_{47} Ag} & \ce{->} & \ce{^{108}_{48} Cd} & + & \ce{\beta^- + \bar{\nu}_{\text{e}}} \\
+      \ce{^{109}_{47} Ag} & + & \ce{n} & \ce{->} & \ce{^{110}_{47} Ag} & \ce{->} & \ce{^{110}_{48} Cd} & + & \ce{\beta^- + \bar{\nu}_{\text{e}}}
+    \end{eqns}%
+    In der Natur vorkommendes Silber beinhaltet zu $\SI{52}{\percent}$ \ce{^{107} Ag} und zu $\SI{48}{\percent}$ \ce{^{109} Ag}, also laufen beide gezeigten Zerfälle gleichzeitig und überlagert ab.
+
+    Die Zerfälle radioaktiver Isotope folgen dem Gesetz eines exponentiellen Abfalls.
+    \begin{equation}
+      N(t) = N_0 e^{- \lambda t}
+      \label{eq:Nvont}
+    \end{equation}%
+    Die eingangs in Worten formulierte Definition der Halbwertszeit lautet
+    \begin{equation}
+      N(T) \coloneqq \frac{1}{2} N_0 \; ,
+      \label{eq:N0}
+    \end{equation}%
+    sodass durch Einsetzen in Gleichung \eqref{eq:Nvont}
+    \begin{equation}
+      T = \frac{\ln 2}{\lambda}
+      \label{eq:Halbwertszeit}
+    \end{equation}%
+    folgt.
+    Die experimentelle Bestimmung von $N(t)$ gestaltet sich schwierig. Stattdessen wird zumeist die Anzahl der Zerfälle $N_{\Delta t}(t)$ in der Zeit $\Delta t$ gemessen.
+    Es ist per Definition
+    \begin{equation}
+      N_{\Delta t}(t) = N(t) - N(t + \Delta t) \; ,
+      \label{eq:Null}
+    \end{equation}%
+    woraus durch Einsetzen der Gleichungen \eqref{eq:Nvont} und \eqref{eq:N0}
+    \begin{align}
+        N_{\Delta t}(t) & = N_0 \left( 1 - u^{- \lambda \Delta t} \right) u^{- \lambda t}  \nonumber \\
+        \Longleftrightarrow \;\;\;\;\; \ln N_{\Delta t}(t) & = \ln \left( N_0 \left( 1 - u^{- \lambda \Delta t} \right) \right) - \lambda t
+        \label{eq:zerfall_lin-regress}
+    \end{align}%
+    folgt. Die Zerfallskonstante $\lambda$ kann also durch eine lineare Regression bestimmt werden. Ferner lässt sich durch den Offset dieser Geradengleichung auch die Teilchenzahl zu Beginn der Messung $N_0$ bestimmen.
+
+    Bei der Messung von Silber kommt erschwerend hinzu, dass zwei radioaktive Isotope gleichzeitig vorhanden sind.
+    Um dennoch eine Aussage über die Halbwertszeiten der jeweiligen Isotope treffen zu können, muss eine der beiden Halbwertszeiten viel größer als die andere sein. Dies ist im Fall der Silber Isotope gegeben.
+    Zunächst wird mittels der oben beschriebenen linearen Regression die Halbwertszeit des langlebigen $\ce{^{108} Ag}$ bestimmt, indem nur die Werte ab $t^*$ einbezogen werden.
+    Der Zeitpunkt $t^*$ ist so zu wählen, dass das kurzlebige $\ce{^{110} Ag}$ zu diesem Zeitpunkt fast vollständig zerfallen ist. Die Wahl von $t^*$ verlangt daher Fingerspitzengefühl und ist mit einer systematischen Unsicherheit verbunden.
+    Aus der Kenntnis der Zerfallsrate des $\ce{^{108} Ag}$ kann dieser Zerfall aus den Messwerten gemäß
+    \begin{equation}
+      N_{\Delta t,\text{kurz}}(t_i) = N_{\Delta t,\text{ges}}(t_i) - N_{\Delta t,\text{lang}}(t_i)
+      \label{eq:MARIUS} 
+    \end{equation}
+     herausgerechnet und erneut eine lineare Regression durchgeführt werden, um die Halbwertszeit des kurzlebigen $\ce{^{110} Ag}$ zu bestimmen.
+
+
+% 2x2 Plot
+% \begin{figure*}
+%     \centering
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung1.pdf}
+%         \caption[]%
+%         {{\small Schaltung 1.}}
+%         \label{fig:Schaltung1}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung2.pdf}
+%         \caption[]%
+%         {{\small Schaltung 2.}}
+%         \label{fig:Schaltung2}
+%     \end{subfigure}
+%     \vskip\baselineskip
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung4.pdf}    % Zahlen vertauscht ... -.-
+%         \caption[]%
+%         {{\small Schaltung 3.}}
+%         \label{fig:Schaltung3}
+%     \end{subfigure}
+%     \quad
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung3.pdf}
+%         \caption[]%
+%         {{\small Schaltung 4.}}
+%         \label{fig:Schaltung4}
+%     \end{subfigure}
+%     \caption[]
+%     {Ersatzschaltbilder der verschiedenen Teilaufgaben.}
+%     \label{fig:Schaltungen}
+% \end{figure*}
