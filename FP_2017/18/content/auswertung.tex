@@ -1,0 +1,335 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Sämtliche im Folgenden durchgeführten Ausgleichsrechnungen werden mit der \emph{curve fit} Funktion aus dem für \emph{Python} geschriebenen package \emph{NumPy}\cite{scipy} durchgeführt. Fehlerrechnungen werden mit dem für \emph{Python} geschriebenen package \emph{Uncertainties}\cite{uncertainties} ausgeführt.
+
+\subsection{Europium-Messung}
+\label{sec:Europium-Messung}
+\subsubsection{Energiekalibrierung}
+\label{sec:Energiekalibrierung}
+
+Um die Messkanäle des Detektors den jeweiligen Energien zuzuordnen, muss eine Energiekalibrierung vorgenommen werden. Dafür werden Strahler mit einem linienreichen Spektrum verwendet, wie in dieses Fall Europium.\\
+In der folgenden Abbildung ist das Spektrum des verwendeten $\ce{^{152}_{}Eu}$ dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Messdaten_Teil_1_Rohdaten.pdf}
+  \caption{Spektrum von $\ce{^{152}_{}Eu}$.}
+  \label{fig:Messdaten_1_rohdaten}
+\end{figure}
+
+Die Messung wurde in einem Zeitraum von $\SI{3637}{\second}$ aufgenommen. Dies entspricht der Messzeit unter Berücksichtigung der Totzeit des Systems.
+Mit den in Tabelle \ref{table:A1} enthaltenen  Emissonswahrscheinlichkeiten wird jedem Peak eine Energie zugewiesen.
+\input{build/Tabelle_Energie_EmW_texformat.tex}
+
+Mit diesen Daten wird eine lineare Ausgleichsrechnung vorgenommen.
+
+
+\begin{figure}
+  \centering
+  \includegraphics{build/fit.pdf}
+  \caption{Ausgleichsrechnung zur Energiekalibrierung des Detektors.}
+  \label{fig:Messdaten_1_rohdaten}
+\end{figure}
+
+
+Mit den Fitparametern aus der obigen Ausgleichsrechnung und dem Ansatz einer linearen Funktion ergibt sich der folgende Zusammenhang zwischen Energie und Kanalnummer
+\begin{align}
+  E(k)= \input{build/fitparameter_m.tex} \frac{\text{keV}}{\text{Kanal}} \cdot k -\input{build/fitparameter_b.tex},
+  \label{eq:Energiefkt}
+\end{align}
+wobei $k$ für die Kanalnummer steht.
+
+\subsubsection{Effizienzbestimmung}
+\label{sec:Effizienzbestimmung}
+Um einen Zusammenhang zwischen der Effizienz und der Energie herzustellen wird Formel \eqref{eq:effizienz} verwendet. Die hierfür benötigte Aktivität der Probe an dem Versuchstag wird über die Zerfallsfunktion
+\begin{align}
+  A(t)= A\cdot e^{-\frac{\ln{2}}{T_{1/2}}t}
+\end{align}
+berechnet. Dabei entspricht $A$ der Aktivität der Probe am 1.10.2000. Nach \cite{skript} ist diese mit $\input{build/Akt_Bq_2000.tex}$ angegeben.
+Weiter ist die Halbwertsbreite $T_{1/2}$ angegeben mit  $\input{build/Halbwertszeit_Bq.tex}$. Die Variable $t$ beschreibt die vergangene Zeit in Tagen seit dem 1.10.2000  bis zu dem Versuchstag, den 22.05.2017. Somit entspricht $t=6077$d. Der benötigte Raumwinkelanteil $\frac{\Omega}{4\pi}$ ergibt sich durch Formel \eqref{eq:raumwinkel} mit den Parametern $a=11.5\text{cm}$, $r=22.5\text{mm}$ zu $\frac{\Omega}{4\pi} = \input{build/Raumwinkel.tex}$. Zusätzlich müssen die Inhalte der Peaks erfasst werden. Dafür wird jeder Peak betrachtet und die jeweilige Breite manuell festgesetzt. Somit ergibt sich mit den folgenden Parametern in Tabelle \ref{table:Effizienz_a} die jeweilige Effizienz nach Formel \eqref{eq:effizienz}.
+
+\input{build/Tabelle_Effizienz_a_texformat.tex}
+
+
+Der Zusammenhang zwischen der Energie $E$ und der Effizienz $Q$ wird durch eine fallende Potenzfunktion
+\begin{align}
+  Q(E)=a\cdot E^b +c
+\end{align}
+beschrieben. Die Ausgleichsrechnung ist mit den Parametern
+\begin{align}
+  a &= \input{build/Fitparamter_Effizienz_a.tex}\\
+  b &= \input{build/Fitparamter_Effizienz_b.tex}\\
+  c &= \input{build/Fitparamter_Effizienz_c.tex}
+\end{align}
+erfolgt und in Abbildung \ref{fig:Energie_Effizenz} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Energie_Effizenz.pdf}
+  \caption{Darstellung der Wertepaare \{E,Q\} und ihrer Fitfunktion.}
+  \label{fig:Energie_Effizenz}
+\end{figure}
+
+\subsection{Cäsium-Messung}
+Um die Detektoreigenschaften zu bestimmen, wurde das Spektrum einer $\ce{^{137}_{}Cs}$-Probe aufgenommen. Es ist in Abbildung \ref{fig:Cs_probe} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Messdaten_Teil_2_Rohdaten.pdf}
+  \caption{Spektrum der $\ce{^{137}_{}Cs}$-Probe.}
+  \label{fig:Cs_probe}
+\end{figure}
+
+\subsubsection{Photopeak}
+\label{sec:Photopeak}
+Zur Analyse wurde der Photopeak mit Hilfe der Gaußfunktion
+\begin{align}
+  Z(x)=a\cdot e^{-b(x-c)^2}
+  \label{eq:gausskurvenfit}
+\end{align}
+gefittet, wobei $x$ für die Kanalnummer steht. Dabei ergeben sich die Fitparameter
+\begin{align}
+  a &= \input{build/Fitparamter_Photo_a.tex}\\
+  b &= \input{build/Fitparamter_Photo_b.tex}\\
+  c &= \input{build/Fitparamter_Photo_c.tex} \; .
+\end{align}
+Die Messdaten und die Fitergebnisse sind im Kanalnummer-Intervall von $[2200, 2235]$ in Abbildung \ref{fig:Cs_probe_fit} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/fit2.pdf}
+  \caption{Photopeak im  $\ce{^{137}_{}Cs}$ Spektrum mit dazugehörigem Gaußfit.}
+  \label{fig:Cs_probe_fit}
+\end{figure}
+Anhand des Fitparameters $c$ und der Umrechnungsformel \eqref{eq:Energiefkt} zwischen Kanalnummer und Energie, berechnet sich die Energie des $\gamma$-Quants
+zu $E_\gamma = \input{build/E_gamma.tex}$. Des weiteren ergibt sich für die Halbwertsbreite der Gaußverteilung
+\begin{align}
+  E_{1/2,exp} &= \input{build/Halbwertsbreite.tex}\;.
+\end{align}
+Zwischen der Halbwertsbreite und der Zehntelwertsbreite einer Gaußfunktion muss gelten
+\begin{align}
+  E_{1/10} = 1.823 E_{1/2},
+  \label{eq:Energiegauss}
+\end{align}
+somit ergibt sich weiter
+\begin{align}
+  E_{1/10,\text{exp}} &= \input{build/Zehntelwertsbreite.tex}\;.
+\end{align}
+Für die theoretischen Werte wird nach Literatur \cite{skript} $E_{EL}=2.9 \text{eV}$
+ % und $E_\gamma = 660\text{keV}$
+angenommen. Nach Gleichung \eqref{eq:fano_halbwertsbreite} und \eqref{eq:Energiegauss}
+folgt somit
+\begin{align}
+  E_{1/2,\text{theo}} &= \input{build/Halbwertsbreite_theo.tex}\\
+  E_{1/10,\text{theo}} &= \input{build/Zehntelwertsbreite_theo.tex} \; .
+\end{align}
+% Damit eine Gaußverteilung vorliegt muss die Beziehung aus Gleichung ... erfüllt sein, jedoch weicht $\frac{E_{1/2,exp}}{E_{1/10,exp}} = \input{build/Quotient.tex} $ vom theoretischen Wert um $\input{build/Abweichung_Quotient.tex}$ ab.\\
+
+Zur Bestimmung des Inhalts des Photopeaks wird das uneigentliche Integral über die Gaußkurve $\eqref{eq:gausskurvenfit}$ von $-\infty$ bis $\infty$ gebildet. Es ergibt sich $Z_{Photopeak}= \input{build/Inhalt_photopeak.tex}$.
+
+\subsubsection{Compton-Kontinuum}
+\label{sec:Compton-Kontinuum}
+Zur Bestimmung der Energie der Comptonkante wird der entsprechende Bereich aus Abbildung \ref{fig:Cs_probe} genauer betrachtet.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Messdaten_Teil_2_Comptonkante.pdf}
+  \caption{Messdaten der Comptonkante.}
+  \label{fig:Cs_probe_Comptonkante}
+\end{figure}
+Da dieser Bereich nicht durch eine Ausgleichsfunktion beschrieben werden kann, wird der als Comptonkante festgelegte Kanal mit einem ausreichend großen Fehler angegeben. Mit der Gleichung \eqref{eq:Energiefkt} wird die  Kanalnummer $\input{build/Kanal_Comptonkante.tex}$ in die entsprechende Energie umgerechnet und es ergibt sich
+\begin{align}
+  E_{\text{Comptonkante,exp}} = \input{build/E_Comptonkante.tex}\;.
+\end{align}
+Der theoretische Wert für die Comptonkante wird mit $E_\gamma =660\text{keV}$ und Gleichung \eqref{eq:comptonEmax} berechnet und somit folgt
+\begin{align}
+  E_{\text{Comptonkante,theo}} = \input{build/E_Comptonkante_theo.tex}\;.
+  \label{eq:ckante_theo}
+\end{align}
+Die Abweichung beträgt $\input{build/E_Comptonkante_prozent.tex}$.\\
+
+
+
+Die Kanalnummer des Rücksteupeaks wird auf  $\input{build/Kanal_Compton_ruck.tex}$ festgesetzt. Auch hier wird ein ausreichend großer Fehler angenommen, da wie in der obigen Abbildung zu sehen ist, die Werte stark fluktuieren.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Messdaten_Teil_2_Ruckstreupeak.pdf}
+  \caption{Messdaten des Rückstreupeaks.}
+  \label{fig:Cs_probe_Compton_ruck}
+\end{figure}
+
+Die Energien werden zum einen direkt aus der Kanalnummer und zum anderen aus der Energie der Comptonkante bestimmt. Dazu wird die Energie der Comptonkante von der Energie des Photopeaks abgezogen und  in Gleichung \eqref{eq:comptonEmax} eingesetzt. Für die direkte Variante wird die Kanalnummer lediglich in die jeweilige Energie umgerechnet. Aus den beiden Rechnungen resultiert
+\begin{align}
+  E_{\text{Rückstreupeak,direkt}} = \input{build/Compton_ruck_direkt.tex}\\
+  E_{\text{Rückstreupeak,indirekt}}= \input{build/Compton_ruck_indirekt.tex}\;.
+\end{align}
+
+Der theoretische Wert ergibt sich nach Gleichung \eqref{Ruckstreu_wichtig} mit dem Wert der Comptonkante aus Gleichung \eqref{eq:ckante_theo} zu $E_\text{Rückstreupeak,theo} = \input{build/Compton_ruck_theo.tex}$.
+Die Abweichung zum direkten Verfahren beträgt  $\input{build/Compton_ruck_abw.tex}$ und zum indirekten Verfahren  $\input{build/Compton_ruck_abw_2.tex}$.
+Durch die Mittlung der beiden Verfahren ergibt sich eine Abweichung von  $\input{build/Compton_ruck_abw_mittel.tex}$
+
+Für den Inhalt des Comptonkontinuums wird der Inhalt der Kanäle bis einschließlich der Comptonkante aufsummiert, daraus ergibt sich
+\begin{align}
+    Z_{\text{Comptonkontinuum}} = \input{build/Z_Comptonkontinuum.tex}\:.
+\end{align}
+
+
+
+
+\subsubsection{Absorptionswahrscheinlichkeit}
+\label{sec:Absorptionswahrscheinlichkeit}
+Zur Berechnung der Absorptionswahrscheinlichtkeit wird der Extinktionskoeffizient  des Photoeffekts und des Comptoneffekts bei einer Energie von $E_{\gamma} =660\text{keV}$ in Abbildung \ref{fig:extinktionskoeffizient} abgelesen. Somit werden für die folgende Rechnung die Werte
+\begin{align}
+  \mu_\textrm{Photo} &= 0.008\frac{\text{1}}{\text{cm}}\\
+  \mu_\textrm{Compton} &=0.38\frac{\text{1}}{\text{cm}}
+\end{align}
+verwendet. Die Absorptionswahrscheinlichkeit entspricht der Effizienz $Q$ und kann über die Beziehung
+\begin{align}
+  Q=1-e^{-\mu d}
+\end{align}
+bestimmt werden, wobei $d$ die Länge des Detektors angibt. Bei dem verwendeten Germanium-Detektor beträgt die Länge $d=3.9\text{cm}$. Für die beiden Effekte ergibt sich mit der obigen Gleichung
+\begin{align}
+  Q_\textrm{Photo} = \input{build/Q_Photo.tex}\\
+  Q_\textrm{Compton} = \input{build/Q_Compton.tex} \; .
+\end{align}
+
+Der Vergleich des Verhältnisses der Absorptionswahrscheinlichkeiten  $\frac{Q_{Compton}}{Q_{Photopeak}}  = \input{build/Q_ver.tex}$ mit dem Verhältnis der Peakinhalte der beiden Effekte $\frac{Z_{Comptonkontinuum}}{Z_{Photopeak}} = \input{build/Z_ver.tex}$ ergibt sich ein Abweichung  zwischen diesen von $\input{build/Z_Q_wahr.tex}$ .
+
+\subsection{Barium-Messung}
+\label{sec:Barium_Messung}
+
+Das Spektrum der Bariumquelle ist in der folgenden Abbildung dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Messdaten_Teil_4_Rohdaten.pdf}
+  \caption{Spektrum der Bariumquelle.}
+  \label{fig:Cs_probe_Compton_ruck}
+\end{figure}
+
+Die Energien $E$ und die Inhalte $Z$ der Peaks werden wie in Kapitel \ref{sec:Europium-Messung} ermittelt. Des weiteren wird die Effizienz $Q$ mit Hilfe der  Gleichung \eqref{eq:effizienz} bestimmt.
+Alle ermittelten Daten sind in der folgenden Tabelle aufgelistet.
+
+\input{build/Tabelle_Effizienz_d_texformat.tex}
+
+Durch die Mittelung aller Aktivitäten die nach Gleichung $\eqref{eq:effizienz}$ berechnet wurden, ergibt sich für den Mittelwert
+\begin{align}
+  A_\textrm{Ba} = \input{build/Akt_Barium_Mittelw.tex}\:.
+\end{align}
+
+\subsection{Stein-Messung}
+
+Das Spektrum des Steins mit unbekannter Zusammensetzung ist in Abbildung \ref{fig:Stein_abb} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Messdaten_Stein_Rohdaten.pdf}
+  \caption{Spektrum des Steins.}
+  \label{fig:Stein_abb}
+\end{figure}
+
+Aus den Kanalnummern der jeweiligen Peaks werden mit Gleichung \ref{eq:Energiefkt} die Energien berechnet. Diese Energien werden in den folgenden Tabellen mit der Zerfallsreihe von \ce{^{238}_{}U}-Reihe verglichen.
+
+\input{build/Tabelle_Vergleich_Th_texformat.tex}
+
+\input{build/Tabelle_Vergleich_Ra_texformat.tex}
+
+\input{build/Tabelle_Vergleich_Pb_texformat.tex}
+
+\input{build/Tabelle_Vergleich_Bi_texformat.tex}
+
+
+
+
+
+
+
+
+
+% % Examples
+% \begin{equation}
+%   U(t) = a \sin(b t + c) + d
+% \end{equation}
+%
+% \begin{align}
+%   a &= \input{build/a.tex} \\
+%   b &= \input{build/b.tex} \\
+%   c &= \input{build/c.tex} \\
+%   d &= \input{build/d.tex} .
+% \end{align}
+% Die Messdaten und das Ergebnis des Fits sind in Abbildung~\ref{fig:plot} geplottet.
+%
+% %Tabelle mit Messdaten
+% \begin{table}
+%   \centering
+%   \caption{Messdaten.}
+%   \label{tab:data}
+%   \sisetup{parse-numbers=false}
+%   \begin{tabular}{
+% % format 1.3 bedeutet eine Stelle vorm Komma, 3 danach
+%     S[table-format=1.3]
+%     S[table-format=-1.2]
+%     @{${}\pm{}$}
+%     S[table-format=1.2]
+%     @{\hspace*{3em}\hspace*{\tabcolsep}}
+%     S[table-format=1.3]
+%     S[table-format=-1.2]
+%     @{${}\pm{}$}
+%     S[table-format=1.2]
+%   }
+%     \toprule
+%     {$t \:/\: \si{\milli\second}$} & \multicolumn{2}{c}{$U \:/\: \si{\kilo\volt}$\hspace*{3em}} &
+%     {$t \:/\: \si{\milli\second}$} & \multicolumn{2}{c}{$U \:/\: \si{\kilo\volt}$} \\
+%     \midrule
+%     \input{build/table.tex}
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% % Standard Plot
+% \begin{figure}
+%   \centering
+%   \includegraphics{build/plot.pdf}
+%   \caption{Messdaten und Fitergebnis.}
+%   \label{fig:plot}
+% \end{figure}
+%
+% 2x2 Plot
+% \begin{figure*}
+%     \centering
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung1.pdf}
+%         \caption[]%
+%         {{\small Schaltung 1.}}
+%         \label{fig:Schaltung1}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung2.pdf}
+%         \caption[]%
+%         {{\small Schaltung 2.}}
+%         \label{fig:Schaltung2}
+%     \end{subfigure}
+%     \vskip\baselineskip
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung4.pdf}    % Zahlen vertauscht ... -.-
+%         \caption[]%
+%         {{\small Schaltung 3.}}
+%         \label{fig:Schaltung3}
+%     \end{subfigure}
+%     \quad
+%     \begin{subfigure}[b]{0.475\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Abbildungen/Schaltung3.pdf}
+%         \caption[]%
+%         {{\small Schaltung 4.}}
+%         \label{fig:Schaltung4}
+%     \end{subfigure}
+%     \caption[]
+%     {Ersatzschaltbilder der verschiedenen Teilaufgaben.}
+%     \label{fig:Schaltungen}
+% \end{figure*}

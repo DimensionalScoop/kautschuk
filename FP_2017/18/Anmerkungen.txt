@@ -1,0 +1,13 @@
+-Tabelle 1: Quelle
+- "Die Abweichung zum direkten Verfahren..." gib besser beide Abweichungen zu beiden Verfahren an (gl. 36 und 37), und dann vlt noch einen Mittelwert aus beiden Verfahren bilden und auch dessen Abweichung angeben.
+- "und bei dem R�ckstreupeak eine Abweichung von" du gehst hier garnicht mehr auf die zwei verschiedenen Werte, die wir ja haben, ein. warum nicht? die beiden zusammen gemittelt sind zB ganz gut.. (s.o.)
+- abb. 17: es sind 9 peaks gekennzeichnet, in den tabellen dadrunter finde ich aber nur 8 werte insgesamt
+
+
+
+
+
+
+#- diskussion:  "kann nicht erkl�rt werden" finde ich sehr hart. gibts da nicht doch eine m�gl. erkl�rung? die Herleitung von Gl. 9 geht ja auch von einigen Dingen aus, insbesondere steckt da zB der Fano-Faktor drin (mit 0.1 festgelegt), vlt ist das einfach falsch hier. Deine anschl.
+
+- du schreibst st�ndig Sachen kursiv, die nicht kursiv geschrieben werden sollten, zB. gl. 29 bis 38, Tabelle 3 .......
