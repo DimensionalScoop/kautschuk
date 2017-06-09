@@ -23,14 +23,11 @@ def search_replace_within_file(filenameToSearch, textToSearch, textToReplace):
             print(line.replace(textToSearch, textToReplace), end='')
 
 def make_table(columns, figures=None):
-    assert hasattr(columns[0],'__iter__'), "Wenn nur eine Zeile von Daten vorliegt, funktioniert zip nicht mehr; die Elemente von columns müssen Listen sein, auch wenn sie ihrerseits nur ein Element enthalten."
-
     if figures is None:
         figures = [None] * len(columns)
 
     cols = []
     for column, figure in zip(columns, figures):
-        assert (type(column) != str), "Hier ist ein einzelner String übergeben worden. Baue daraus eine Liste und alles ist gut ( column = [string] )."
         if (type(column) == list):
             col = zip(*zip(column))     # hard to find this kind of code... this will unzip the list column, ref: https://docs.python.org/3/library/functions.html#zip
             cols.extend(col)
@@ -39,7 +36,11 @@ def make_table(columns, figures=None):
                 figure = ''
             col = list(zip(*['{0:.{1:}uf}'.format(x, figure).split('+/-') for x in column]))
         else:
-            col = list(zip(*[['{0:.{1:}f}'.format(x, figure)] for x in noms(column)]))
+            try:
+                test_iterator = iter(column)    # if only one entry is given, then this will throw a type error exception - handled below
+                col = list(zip(*[['{0:.{1:}f}'.format(x, figure)] for x in noms(column)]))
+            except TypeError:
+                col = list(zip(*[['{0:.{1:}f}'.format(column, figure)]]))
         cols.extend(col)
 
     max_lens = [max(len(s) for s in col) for col in cols]
@@ -135,8 +136,8 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
             elif (buchstabe == '\\'):
                 counter_lines += 1
 
-    NumberOfLines = counter_lines/2
-    NumberOfColumns = counter_columns/counter_lines*2+1
+    NumberOfLines = int(counter_lines/2)
+    NumberOfColumns = int(counter_columns/counter_lines*2+1)
     counter_digits_preDot = np.zeros((NumberOfLines, NumberOfColumns), dtype=np.int)
     counter_digits_postDot = np.zeros((NumberOfLines, NumberOfColumns), dtype=np.int)
     dot_reached = False
@@ -168,9 +169,9 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
                 is_last_column_a_string = False     # sobald wir auch nur irgendeine Zahl finden ist dieser Wert halt falsch
                 if (counter_lines/2 <= (NumberOfLines-1)):
                     if dot_reached == False:
-                        counter_digits_preDot[counter_lines/2][counter_columns] += 1
+                        counter_digits_preDot[int(counter_lines/2)][counter_columns] += 1
                     else:
-                        counter_digits_postDot[counter_lines/2][counter_columns] += 1
+                        counter_digits_postDot[int(counter_lines/2)][counter_columns] += 1
     # jetzt ermittle maximale Anzahl an Stellen und speichere sie in MaxDigitsPreDot und MaxDigitsPostDot
     MaxDigitsPreDot = []
     counter_digits_preDot_np = np.array(counter_digits_preDot)
