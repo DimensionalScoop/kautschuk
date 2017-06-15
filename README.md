@@ -50,3 +50,6 @@ Within this folder you find our style guide for writing python code. We have fou
 
 ## tex-table-generator
 Here we develop functions aiming towards automatic generation of latex tables. Also you will find the documentation for these functions (especially table.py) in the subfolder "Doku table_py".
+
+## autofit.py
+A handy little function that fits ufloat data to a function and returns the fitted parameters as ufloats.
