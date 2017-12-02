@@ -140,8 +140,8 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
                 counter_lines += 1
             j = j+1
 
-    NumberOfLines = int(counter_lines/2)
-    NumberOfColumns = int(counter_columns/counter_lines*2+1)
+    NumberOfLines = int(counter_lines)
+    NumberOfColumns = int(counter_columns/counter_lines+1)
     counter_digits_preDot = np.zeros((NumberOfLines, NumberOfColumns), dtype=np.int)
     counter_digits_postDot = np.zeros((NumberOfLines, NumberOfColumns), dtype=np.int)
     dot_reached = False
@@ -172,11 +172,11 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
                 is_last_column_a_string = True  # wir gehen davon aus, dass ein string drin steht, und ändern diese Meinung wenn wir ne Zahl finden (s.u.)
             elif (RepresentsInt(buchstabe)):
                 is_last_column_a_string = False     # sobald wir auch nur irgendeine Zahl finden ist dieser Wert halt falsch
-                if (counter_lines/2 <= (NumberOfLines-1)):
+                if (counter_lines <= (NumberOfLines-1)):
                     if dot_reached == False:
-                        counter_digits_preDot[int(counter_lines/2)][counter_columns] += 1
+                        counter_digits_preDot[int(counter_lines)][counter_columns] += 1
                     else:
-                        counter_digits_postDot[int(counter_lines/2)][counter_columns] += 1
+                        counter_digits_postDot[int(counter_lines)][counter_columns] += 1
             j = j+1
     # jetzt ermittle maximale Anzahl an Stellen und speichere sie in MaxDigitsPreDot und MaxDigitsPostDot
     MaxDigitsPreDot = []
