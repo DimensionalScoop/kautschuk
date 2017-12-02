@@ -28,6 +28,8 @@ def make_table(columns, figures=None):
 
     cols = []
     for column, figure in zip(columns, figures):
+        if (type(column) == str):
+            column = [column]
         if (type(column) == list):
             col = zip(*zip(column))     # hard to find this kind of code... this will unzip the list column, ref: https://docs.python.org/3/library/functions.html#zip
             cols.extend(col)
@@ -130,11 +132,13 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
     counter_lines = 0
     with open(source_table, 'r') as f:
         Text = f.read()
+        j=0
         for buchstabe in Text:
             if (buchstabe == '&'):
                 counter_columns += 1
-            elif (buchstabe == '\\'):
+            elif (buchstabe == '\\' and Text[j-1] == '\\'):
                 counter_lines += 1
+            j = j+1
 
     NumberOfLines = int(counter_lines/2)
     NumberOfColumns = int(counter_columns/counter_lines*2+1)
@@ -148,6 +152,7 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
     with open(source_table, 'r') as f:
         Text = f.read()
     # 'Vor und Nachkommastellen rausfinden' beginnt hier
+        j=0
         for buchstabe in Text:
             if (buchstabe == '&'):
                 if (is_last_column_a_string & (counter_lines==0)):
@@ -158,7 +163,7 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
                                                 # das ist also auch wahr falls NICHTS in der spalte stand
             elif (buchstabe == '.'):
                 dot_reached = True
-            elif (buchstabe == '\\'):
+            elif (buchstabe == '\\' and Text[j-1] == '\\'):
                 if (is_last_column_a_string & (counter_lines==0)):
                     remember_columns_with_strings.append(counter_columns)
                 counter_lines += 1
@@ -172,6 +177,7 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
                         counter_digits_preDot[int(counter_lines/2)][counter_columns] += 1
                     else:
                         counter_digits_postDot[int(counter_lines/2)][counter_columns] += 1
+            j = j+1
     # jetzt ermittle maximale Anzahl an Stellen und speichere sie in MaxDigitsPreDot und MaxDigitsPostDot
     MaxDigitsPreDot = []
     counter_digits_preDot_np = np.array(counter_digits_preDot)
