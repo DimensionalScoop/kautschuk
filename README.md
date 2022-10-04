@@ -8,7 +8,7 @@ Also you will see a Makefile which you should use in order to build your protoco
 http://toolbox.pep-dortmund.org/install.html
 
 ## Die halbe Trommel zum Glück
-Physicians will be glad to see this :)
+Physicists will be glad to see this :)
 
 ## Editor Guide
 Find out how to optimize your atom text editor.
